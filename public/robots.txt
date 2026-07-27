@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lydia0.cn/sitemap.xml
