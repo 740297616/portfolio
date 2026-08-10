@@ -1,4 +1,5 @@
-export { site, hero } from './site'
+export { site, hero, heroVariants, getRandomHero } from './site'
+
 export { about } from './about'
 export { techCategories } from './tech'
 export { projects, sortedProjects } from './projects'

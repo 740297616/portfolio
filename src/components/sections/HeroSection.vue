@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { motion } from 'motion-v'
-import { hero } from '@/config'
+import { getRandomHero } from '@/config'
 import { EASE_OUT_EXPO } from '@/constants/animation'
+
+// Pick a random hero variant on each page load — content differs on every refresh.
+const hero = getRandomHero()
 
 const enter = (delay: number) => ({
   initial: { opacity: 0, y: 28 },
