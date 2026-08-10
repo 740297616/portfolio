@@ -8,6 +8,7 @@ import type { Project } from '@/types/content'
  */
 export const projects: Project[] = [
   {
+    image: '',
     slug: 'my-zhuke',
     title: '我的珠科',
     description:

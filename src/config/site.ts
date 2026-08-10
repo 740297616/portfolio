@@ -22,7 +22,7 @@ export const site: SiteConfig = {
 export const hero: HeroConfig = {
   headline: ['全栈开发者。', '构建现代 Web 体验。', '打造 AI 驱动的应用。'],
   intro:
-    '我设计并交付端到端的产品——从像素级打磨的界面到稳定可靠的后端系统,并持续深耕 AI 原生体验。',
+    '我设计并交付端到端的产品——从像素级打磨的界面到稳定可靠的后端系统,并持续深耕AI原生体验。',
   primaryCta: { label: '查看项目', href: '#projects' },
   secondaryCta: { label: '联系我', href: '#contact' },
 }

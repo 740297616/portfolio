@@ -5,7 +5,7 @@ import { STAGGER_STEP } from '@/constants/animation'
 
 <template>
   <SectionContainer id="about">
-    <SectionHeader eyebrow="关于" title="一人工作室,以匠心立本。" />
+    <SectionHeader eyebrow="关于" title="一个工程师，持续构建与探索。" />
 
     <div class="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
       <RevealMotion>
