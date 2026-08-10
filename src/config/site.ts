@@ -25,32 +25,32 @@ export const site: SiteConfig = {
  */
 export const heroVariants: HeroConfig[] = [
   {
-    headline: ['全栈开发者。', '构建现代 Web 体验。', '打造 AI 驱动的应用。'],
+    headline: ['软件工程师。', '构建现代 Web 与 AI 应用。', '探索技术的无限可能。'],
     intro:
-      '我设计并交付端到端的产品——从像素级打磨的界面到稳定可靠的后端系统,并持续深耕AI原生体验。',
+      '我专注于现代 Web 开发与 AI 应用探索，从前端体验到后端架构，将想法转化为可靠、优雅的软件产品。',
     primaryCta: { label: '查看项目', href: '#projects' },
+    secondaryCta: { label: '了解更多', href: '#about' },
+  },
+  {
+    headline: ['全栈开发者。', '连接界面、系统与智能。', '创造有价值的软件。'],
+    intro:
+      '我喜欢解决真实问题，从 Vue 与 TypeScript 驱动的交互体验，到后端服务与基础设施建设，持续打磨完整的软件体验。',
+    primaryCta: { label: '浏览作品', href: '#projects' },
     secondaryCta: { label: '联系我', href: '#contact' },
   },
   {
-    headline: ['产品工程师。', '把想法变成可用的产品。', '让体验快而优雅。'],
+    headline: ['AI 应用探索者。', '让软件拥有新的交互方式。', '构建 AI 原生体验。'],
     intro:
-      '从概念到上线,我关注每一个细节——干净的代码、流畅的交互,以及经得起推敲的架构。',
-    primaryCta: { label: '看看作品', href: '#projects' },
-    secondaryCta: { label: '聊聊合作', href: '#contact' },
+      '我关注大语言模型、Agent 工作流以及 AI 驱动的软件形态，探索人与技术协作的新方式，并将实验落地为真实应用。',
+    primaryCta: { label: '查看探索', href: '#projects' },
+    secondaryCta: { label: '我的经历', href: '#timeline' },
   },
   {
-    headline: ['独立开发者。', '专注 AI 与现代 Web。', '用心打磨每个产品。'],
+    headline: ['热爱构建。', '从一个想法到完整产品。', '持续学习与迭代。'],
     intro:
-      '我喜欢用技术解决真实问题——构建快速、可靠、令人愉悦的应用,并在 AI 原生方向持续探索。',
-    primaryCta: { label: '浏览项目', href: '#projects' },
-    secondaryCta: { label: '与我联系', href: '#contact' },
-  },
-  {
-    headline: ['界面与系统。', '兼顾美感与稳健。', '交付完整的体验。'],
-    intro:
-      '我在设计与工程之间架起桥梁——既打磨像素级的界面,也构建稳定可扩展的后端系统。',
-    primaryCta: { label: '查看案例', href: '#projects' },
-    secondaryCta: { label: '开始对话', href: '#contact' },
+      '从校园应用到个人项目，从前端工程到服务部署，我享受把复杂问题拆解，并用代码创造解决方案的过程。',
+    primaryCta: { label: '我的项目', href: '#projects' },
+    secondaryCta: { label: '关于我', href: '#about' },
   },
 ]
 
