@@ -1,83 +1,151 @@
-# Aster Studio — Developer Studio Homepage
+<div align="center">
 
-A production-quality developer studio homepage built with Vue 3 + TypeScript + Vite.
-Dark, minimal, Linear/Vercel-inspired design. All content is config-driven.
+# Lydia Studio
 
-## Stack
+**全栈开发者 · AI 应用探索者**
 
-Vue 3 (Composition API + `<script setup>`) · TypeScript · Vite · Vue Router · Pinia ·
-UnoCSS (presetWind3 + design tokens) · motion-v · @vueuse/core · @iconify/vue ·
-unplugin-auto-import / unplugin-vue-components
+专注于 AI 与现代 Web 技术的独立开发者工作室，构建快速、优雅、可靠的产品。
 
-## Commands
+[![Vue](https://img.shields.io/badge/Vue-3.x-42b883?logo=vuedotjs&logoColor=white)](https://vuejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.x-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-8.x-646cff?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![UnoCSS](https://img.shields.io/badge/UnoCSS-66.x-333333?logo=unocss&logoColor=white)](https://unocss.dev/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-```sh
-pnpm install       # install dependencies
-pnpm dev           # dev server with HMR
-pnpm build         # type-check + production build
-pnpm preview       # preview the production build
-pnpm lint          # oxlint + eslint (with --fix)
-pnpm format        # prettier on src/
-node scripts/screenshot.mjs [url] [outDir]   # headless visual check (needs local Chrome)
+
+[在线预览](https://lydia0.cn) · [博客](https://blog.lydia0.cn) · [GitHub](https://github.com/740297616)
+
+</div>
+
+---
+
+## ✨ 特性
+
+- 🎨 **Linear / Vercel 风格** — 深色主题、极简布局、大量留白、克制动画
+- ⚡ **高性能** — Vite 8 + 按需加载，极速构建与首屏体验
+- 🧩 **高度配置化** — 所有内容集中在 `src/config/`，新增内容无需修改组件
+- 🎭 **精致动效** — 滚动 Reveal、鼠标跟随高光、数字动画，尊重 `prefers-reduced-motion`
+- 📱 **完全响应式** — Desktop / Tablet / Mobile 全适配
+- 🔍 **SEO 就绪** — Open Graph、Twitter Card、Sitemap、robots.txt、Manifest 一应俱全
+- 🛠 **企业级工程** — ESLint + Oxlint + Prettier + TypeScript 严格模式
+
+## 🚀 快速开始
+
+### 环境要求
+
+- **Node.js** ≥ 22.18 或 ≥ 24.12
+- **pnpm** ≥ 9
+
+### 安装与运行
+
+```bash
+# 安装依赖
+pnpm install
+
+# 启动开发服务器（HMR）
+pnpm dev
+
+# 类型检查 + 生产构建
+pnpm build
+
+# 预览生产构建
+pnpm preview
+
+# 代码检查（oxlint + eslint，自动修复）
+pnpm lint
+
+# 代码格式化
+pnpm format
 ```
 
-## Editing content — no component changes needed
-
-Everything visible on the site lives in `src/config/`:
-
-| File | Controls |
-| --- | --- |
-| `site.ts` | Brand name, title/description, canonical URL, nav, hero copy & CTAs |
-| `about.ts` | About paragraphs + focus areas |
-| `tech.ts` | Tech stack by category (icon / level / years) |
-| `projects.ts` | Featured projects (tags, tech, GitHub/demo links, `pinned`, screenshot) |
-| `timeline.ts` | Growth timeline entries |
-| `now.ts` | "Now" — current focus items |
-| `stats.ts` | Animated statistics (API-ready shape) |
-| `social.ts` | Contact channels (GitHub / Email / Blog / X) |
-
-Types for all of the above are in `src/types/content.ts`.
-
-> **Before deploying:** replace the placeholder brand (`Aster Studio`), domain
-> (`asterstudio.dev`) and social handles (`yourname`) in `src/config/`,
-> `index.html`, `public/robots.txt`, `public/sitemap.xml` and `public/site.webmanifest`.
-> Project screenshots go in `public/` and are referenced via `image` in `projects.ts`.
-
-## Architecture
+## 📁 项目结构
 
 ```
 src/
 ├── components/
-│   ├── common/      # RevealMotion, BaseButton, BaseCard (mouse-follow glow),
-│   │                # BaseTag, AnimatedNumber, SectionContainer, SectionHeader
-│   ├── layout/      # AppHeader (sticky blur nav + mobile menu), AppFooter, BrandMark
-│   └── sections/    # Hero, About, Tech, Projects, Timeline, Now, Stats, Contact
-├── composables/     # useCountUp, useCardGlow (auto-imported)
-├── config/          # ← all site content (see table above)
-├── constants/       # shared animation easings/durations
-├── layouts/         # DefaultLayout
-├── router/          # routes + scroll behavior + document titles
-├── stores/          # Pinia ui store (mobile menu)
-├── styles/          # global base styles (tokens live in uno.config.ts)
-├── types/           # content models + generated auto-import dts
-└── views/           # HomeView, NotFoundView
+│   ├── common/          # 通用组件（RevealMotion、BaseButton、BaseCard 等）
+│   ├── layout/          # 布局组件（AppHeader、AppFooter、BrandMark）
+│   └── sections/        # 页面区块（Hero、About、Tech、Projects 等）
+├── composables/         # 组合式函数（useCountUp、useCardGlow 等）
+├── config/              # ← 所有站点内容配置
+├── constants/           # 共享动画缓动/时长
+├── layouts/             # 页面布局
+├── router/              # 路由 + 滚动行为 + 文档标题
+├── stores/              # Pinia 状态（移动端菜单）
+├── styles/              # 全局基础样式
+├── types/               # 内容模型 + 自动导入类型声明
+└── views/               # 页面视图（HomeView、NotFoundView）
 ```
 
-Design tokens (colors, fonts, shortcuts like `btn-primary` / `card-surface`) are
-defined once in `uno.config.ts`. Animations share one easing vocabulary in
-`src/constants/animation.ts` and respect `prefers-reduced-motion`.
+## 🎨 内容配置
 
-## SEO
+所有可见内容均来自 `src/config/`，**无需修改任何组件**：
 
-`index.html` ships full meta (title/description/keywords), Open Graph + Twitter Card
-(`public/og.png`), canonical URL, favicon (`.svg` + `.ico`), `site.webmanifest`,
-`robots.txt` and `sitemap.xml`. Keep `index.html` meta in sync with `src/config/site.ts`.
+| 文件 | 控制内容 |
+| --- | --- |
+| `site.ts` | 品牌名、标题/描述、导航、Hero 文案与 CTA |
+| `about.ts` | 关于段落 + 专注领域 |
+| `tech.ts` | 技术栈分类（图标 / 熟练度 / 年限） |
+| `projects.ts` | 精选项目（标签、技术栈、GitHub/演示链接、置顶） |
+| `timeline.ts` | 成长时间线 |
+| `now.ts` | 「当下」——当前关注事项 |
+| `stats.ts` | 动画统计数字（API 就绪结构） |
+| `social.ts` | 联系方式（GitHub / Email / Blog / Telegram） |
+| `friends.ts` | 友链 |
 
-## Extending
+> 类型定义见 `src/types/content.ts`。
 
-- **New page** (e.g. blog): add a view in `src/views/`, register it in
-  `src/router/index.ts` — the layout, transitions and SEO title handling are already wired.
-- **New project / timeline entry**: append to the config file; sorting (`pinned`) and
-  rendering are automatic.
-- **Live stats**: fetch in a composable and feed the same `StatItem[]` shape to
-  `StatsSection` — components don't change.
+### 新增项目示例
+
+```ts
+// src/config/projects.ts
+{
+  slug: 'my-new-project',
+  title: '我的新项目',
+  description: '项目简介……',
+  tech: ['Vue 3', 'TypeScript', 'FastAPI'],
+  tags: ['全栈', 'AI'],
+  github: 'https://github.com/yourname/my-new-project',
+  pinned: true, // 置顶
+}
+```
+
+## 🏗 技术栈
+
+| 类别 | 技术 |
+| --- | --- |
+| **前端** | Vue 3 · TypeScript · Vite · UnoCSS · motion-v · VueUse · Iconify |
+| **后端** | Python · FastAPI · Node.js |
+| **数据库** | MySQL · Redis · SQLite |
+| **AI** | OpenAI API · Claude API · DeepSeek API · AstrBot |
+| **DevOps** | Docker · Linux · Nginx · Git |
+| **工程化** | ESLint · Oxlint · Prettier · unplugin-auto-import · unplugin-vue-components |
+
+## 🧩 扩展指南
+
+- **新增页面**（如博客）：在 `src/views/` 添加视图，在 `src/router/index.ts` 注册路由——布局、过渡动画和 SEO 标题处理已全部就绪。
+- **新增项目 / 时间线条目**：追加到对应配置文件，排序（`pinned`）和渲染自动完成。
+- **接入实时统计**：在 composable 中获取数据，喂给 `StatsSection` 的 `StatItem[]` 结构——组件无需改动。
+
+## 📦 部署
+
+构建产物输出到 `dist/`，可部署到任意静态托管平台：
+
+```bash
+pnpm build
+```
+
+> **部署前请检查：** 替换 `src/config/`、`index.html`、`public/robots.txt`、`public/sitemap.xml` 和 `public/site.webmanifest` 中的品牌名、域名与社交链接。项目截图放在 `public/` 下，通过 `projects.ts` 的 `image` 字段引用。
+
+## 📄 License
+
+[MIT](https://opensource.org/licenses/MIT) © [Lydia Studio](https://lydia0.cn)
+
+
+---
+
+<div align="center">
+
+**Designed & Built with Vue.**
+
+</div>
