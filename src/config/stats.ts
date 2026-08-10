@@ -5,8 +5,28 @@ import type { StatItem } from '@/types/content'
  * data fetched in a composable (e.g. GitHub REST) without touching components.
  */
 export const stats: StatItem[] = [
-  { label: '编程年限', value: 8, icon: 'ph:clock-countdown-duotone' },
-  { label: '交付项目', value: 24, suffix: '+', icon: 'ph:rocket-launch-duotone' },
-  { label: '公开仓库', value: 36, icon: 'ph:git-fork-duotone' },
-  { label: 'GitHub Star', value: 1900, suffix: '+', icon: 'ph:star-duotone' },
+  {
+    label: '技术探索',
+    value: 5,
+    suffix: ' 年',
+    icon: 'ph:code-duotone',
+  },
+  {
+    label: '完成项目',
+    value: 20,
+    suffix: '+',
+    icon: 'ph:rocket-launch-duotone',
+  },
+  {
+    label: '技术仓库',
+    value: 30,
+    suffix: '+',
+    icon: 'ph:git-branch-duotone',
+  },
+  {
+    label: '代码贡献',
+    value: 10000,
+    suffix: '+',
+    icon: 'ph:terminal-window-duotone',
+  },
 ]
