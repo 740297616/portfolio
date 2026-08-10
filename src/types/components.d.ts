@@ -15,6 +15,7 @@ declare module 'vue' {
     AnimatedNumber: typeof import('./../components/common/AnimatedNumber.vue')['default']
     AppFooter: typeof import('./../components/layout/AppFooter.vue')['default']
     AppHeader: typeof import('./../components/layout/AppHeader.vue')['default']
+    BackgroundEffects: typeof import('./../components/common/BackgroundEffects.vue')['default']
     BaseButton: typeof import('./../components/common/BaseButton.vue')['default']
     BaseCard: typeof import('./../components/common/BaseCard.vue')['default']
     BaseTag: typeof import('./../components/common/BaseTag.vue')['default']
