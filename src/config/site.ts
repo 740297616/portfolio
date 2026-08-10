@@ -56,9 +56,11 @@ export const heroVariants: HeroConfig[] = [
 
 /** Pick a random hero variant — different on each refresh. */
 export function getRandomHero(): HeroConfig {
-  return heroVariants[Math.floor(Math.random() * heroVariants.length)]
+  const index = Math.floor(Math.random() * heroVariants.length)
+  return heroVariants[index] ?? heroVariants[0]
 }
 
 /** Default variant, kept for static references. */
-export const hero: HeroConfig = heroVariants[0]
+export const hero: HeroConfig = heroVariants[0]!
+
 

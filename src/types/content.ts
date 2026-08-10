@@ -94,6 +94,14 @@ export interface StatItem {
   icon: string
 }
 
+export interface FriendLink {
+  /** Site / person name shown as the link label */
+  name: string
+  href: string
+  /** Optional one-line note shown on hover (title attr) */
+  description?: string
+}
+
 export interface SocialLink {
   name: string
   /** Iconify icon name */
@@ -102,6 +110,7 @@ export interface SocialLink {
   /** Shown next to the name, e.g. `@handle` */
   handle?: string
 }
+
 
 export interface SiteConfig {
   /** Brand name shown in the nav wordmark */

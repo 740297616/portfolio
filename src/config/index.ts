@@ -7,3 +7,5 @@ export { timeline } from './timeline'
 export { nowItems } from './now'
 export { stats } from './stats'
 export { socialLinks } from './social'
+export { friendLinks } from './friends'
+
