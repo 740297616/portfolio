@@ -32,6 +32,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SectionContainer: typeof import('./../components/common/SectionContainer.vue')['default']
     SectionHeader: typeof import('./../components/common/SectionHeader.vue')['default']
+    ServersSection: typeof import('./../components/sections/ServersSection.vue')['default']
     StatsSection: typeof import('./../components/sections/StatsSection.vue')['default']
     TechSection: typeof import('./../components/sections/TechSection.vue')['default']
     TimelineSection: typeof import('./../components/sections/TimelineSection.vue')['default']

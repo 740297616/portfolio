@@ -111,6 +111,25 @@ export interface SocialLink {
   handle?: string
 }
 
+// 游戏服务器
+export type ServerStatus = 'online' | 'offline'
+export interface GameServer {
+  /** Unique identifier */
+  slug: string
+  /** Game name, e.g. `Minecraft` */
+  game: string
+  /** Iconify icon name for the game */
+  icon: string
+  /** Current server status */
+  status: ServerStatus
+  /** Current / max player count — omit when unknown */
+  players?: { current: number; max: number }
+  /** Server version string, e.g. `1.21.4` */
+  version?: string
+  /** Direct-connect address, e.g. `mc.example.com:25565` */
+  address: string
+}
+
 
 export interface SiteConfig {
   /** Brand name shown in the nav wordmark */
