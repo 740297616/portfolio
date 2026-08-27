@@ -2,16 +2,15 @@ import type { AboutConfig } from '@/types/content'
 
 export const about: AboutConfig = {
   paragraphs: [
-    '我是一名软件工程师，专注于Web开发、AI应用与开发者工具。',
-    '我喜欢从真实问题出发，将想法转化为可靠的软件产品。从前端体验到后端架构，从工程实践到AI驱动的新型交互，我持续探索技术如何创造更好的体验。',
-    '目前，我关注AI原生应用、Agent工作流以及现代 Web技术栈，也持续维护自己的开源项目与技术实验。',
+    '我习惯从真实的问题出发，而不是从技术出发。前端、后端、AI 应用，我都做，但核心始终是“这东西有没有真的帮到人”。',
+    '现在主要研究 AI 原生应用和 Agent 工作流，同时维护自己的开源项目。技术上偏爱 Vue + TypeScript 这套组合，后端更看重 API 设计、数据建模和云原生的可观测性。',
+    '有个朴素的信念：开发体验是产品的上游。工具链越顺手，反馈越快，交付的东西才会越好。',
   ],
   focuses: [
     {
       icon: 'ph:browser-duotone',
       title: '现代Web',
-      description:
-        '组件驱动的前端体系,注重排版、动效与可访问性——基于Vue、TypeScript与Vite构建。',
+      description: '组件驱动的前端体系,注重排版、动效与可访问性——基于Vue、TypeScript与Vite构建。',
     },
     {
       icon: 'ph:sparkle-duotone',
