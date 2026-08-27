@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { site, socialLinks, friendLinks } from '@/config'
+import { site, socialLinks } from '@/config'
 
 const year = new Date().getFullYear()
 </script>
@@ -7,30 +7,8 @@ const year = new Date().getFullYear()
 <template>
   <footer class="border-t border-line">
     <div class="container-page py-12">
-      <!-- Friend links -->
       <div
-        v-if="friendLinks.length"
-        class="flex flex-col gap-3 pb-8 md:flex-row md:items-baseline md:gap-8"
-      >
-        <span class="text-eyebrow shrink-0">友情链接</span>
-        <ul class="flex flex-wrap items-center gap-x-6 gap-y-2">
-          <li v-for="friend in friendLinks" :key="friend.href">
-            <a
-              :href="friend.href"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="link-subtle text-sm"
-              :title="friend.description"
-            >
-              {{ friend.name }}
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Meta + socials -->
-      <div
-        class="flex flex-col items-center gap-6 border-t border-line pt-8 md:flex-row md:justify-between"
+        class="flex flex-col items-center gap-6 md:flex-row md:justify-between"
       >
         <div class="flex flex-col items-center gap-2 md:items-start">
           <p class="text-sm text-ink-secondary">{{ site.slogan }}</p>

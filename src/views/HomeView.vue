@@ -6,6 +6,7 @@
   <TimelineSection />
   <NowSection />
   <InfrastructureSection />
+  <FriendsSection />
   <StatsSection />
   <ContactSection />
 </template>

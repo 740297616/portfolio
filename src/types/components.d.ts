@@ -21,6 +21,7 @@ declare module 'vue' {
     BaseTag: typeof import('./../components/common/BaseTag.vue')['default']
     BrandMark: typeof import('./../components/layout/BrandMark.vue')['default']
     ContactSection: typeof import('./../components/sections/ContactSection.vue')['default']
+    FriendsSection: typeof import('./../components/sections/FriendsSection.vue')['default']
     HeroSection: typeof import('./../components/sections/HeroSection.vue')['default']
     HeroVisual: typeof import('./../components/sections/HeroVisual.vue')['default']
     Icon: typeof import('@iconify/vue')['Icon']

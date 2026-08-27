@@ -98,8 +98,12 @@ export interface FriendLink {
   /** Site / person name shown as the link label */
   name: string
   href: string
-  /** Optional one-line note shown on hover (title attr) */
+  /** Optional one-line note shown below the name */
   description?: string
+  /** Iconify icon name — used when no avatar is provided */
+  icon?: string
+  /** Avatar URL — shown as a circular image when provided */
+  avatar?: string
 }
 
 export interface SocialLink {
