@@ -2,7 +2,7 @@
 import { gameServers } from '@/config'
 import { STAGGER_STEP } from '@/constants/animation'
 
-const { copy, copied } = useClipboard()
+const { copy } = useClipboard()
 
 /** Track which server address was just copied (by slug) */
 const copiedSlug = ref<string | null>(null)
@@ -17,12 +17,12 @@ async function copyAddress(slug: string, address: string) {
 </script>
 
 <template>
-  <SectionContainer v-if="gameServers.length" id="servers">
-    <SectionHeader
-      eyebrow="基础设施"
-      title="Game Servers"
-      description="我维护的游戏服务器——欢迎加入。"
-    />
+  <div v-if="gameServers.length">
+    <RevealMotion>
+      <h3 class="mb-6 text-sm font-medium uppercase tracking-wider text-ink-muted">
+        Game Servers
+      </h3>
+    </RevealMotion>
 
     <div class="grid gap-4 sm:grid-cols-2">
       <RevealMotion
@@ -43,7 +43,7 @@ async function copyAddress(slug: string, address: string) {
             <div class="min-w-0 flex-1">
               <!-- Row 1: 游戏名称 + server status -->
               <div class="flex items-center gap-2">
-                <h3 class="truncate text-sm font-medium text-ink">{{ server.game }}</h3>
+                <h4 class="truncate text-sm font-medium text-ink">{{ server.game }}</h4>
                 <span
                   class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium"
                   :class="
@@ -111,5 +111,5 @@ async function copyAddress(slug: string, address: string) {
         </BaseCard>
       </RevealMotion>
     </div>
-  </SectionContainer>
+  </div>
 </template>

@@ -5,7 +5,7 @@
   <ProjectsSection />
   <TimelineSection />
   <NowSection />
-  <ServersSection />
+  <InfrastructureSection />
   <StatsSection />
   <ContactSection />
 </template>

@@ -130,6 +130,24 @@ export interface GameServer {
   address: string
 }
 
+// 个人站点
+export interface PersonalSite {
+  /** Unique identifier */
+  slug: string
+  /** Site name */
+  name: string
+  /** Short description of the site */
+  description: string
+  /** Full URL including protocol */
+  url: string
+  /** Display domain, e.g. `blog.example.com` */
+  domain: string
+  /** Iconify icon name */
+  icon: string
+  /** Current site status */
+  status: ServerStatus
+}
+
 
 export interface SiteConfig {
   /** Brand name shown in the nav wordmark */

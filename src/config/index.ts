@@ -9,4 +9,5 @@ export { stats } from './stats'
 export { socialLinks } from './social'
 export { friendLinks } from './friends'
 export { gameServers } from './servers'
+export { personalSites } from './sites'
 
