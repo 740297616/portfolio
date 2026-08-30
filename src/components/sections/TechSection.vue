@@ -38,7 +38,7 @@ const levelDots: Record<TechLevel, number> = {
             :y="16"
           >
             <div
-              class="group flex items-center gap-3 rounded-xl border border-line bg-white/[0.02] px-4 py-3 transition-all duration-300 hover:(-translate-y-0.5 border-line-strong bg-white/[0.04])"
+              class="group flex items-center gap-3 rounded-xl border border-line bg-overlay-weak px-4 py-3 transition-all duration-300 hover:(-translate-y-0.5 border-line-strong bg-overlay)"
             >
               <Icon
                 :icon="item.icon"
@@ -58,7 +58,7 @@ const levelDots: Record<TechLevel, number> = {
                   v-for="dot in 3"
                   :key="dot"
                   class="h-1 w-1 rounded-full"
-                  :class="dot <= levelDots[item.level] ? 'bg-ink/70' : 'bg-white/12'"
+                  :class="dot <= levelDots[item.level] ? 'bg-ink' : 'bg-line'"
                 />
               </div>
             </div>

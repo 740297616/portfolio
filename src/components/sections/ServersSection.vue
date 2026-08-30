@@ -35,7 +35,7 @@ async function copyAddress(slug: string, address: string) {
           <div class="flex items-start gap-4">
             <!-- 游戏Icon -->
             <span
-              class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line bg-white/[0.03]"
+              class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line bg-overlay-weak"
             >
               <Icon :icon="server.icon" class="h-5 w-5 text-ink-secondary" />
             </span>
@@ -48,13 +48,13 @@ async function copyAddress(slug: string, address: string) {
                   class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium"
                   :class="
                     server.status === 'online'
-                      ? 'bg-emerald-500/10 text-emerald-400'
-                      : 'bg-white/[0.04] text-ink-muted'
+                      ? 'bg-success-soft text-success'
+                      : 'bg-overlay text-ink-muted'
                   "
                 >
                   <span
                     class="h-1.5 w-1.5 rounded-full"
-                    :class="server.status === 'online' ? 'bg-emerald-400' : 'bg-ink-muted'"
+                    :class="server.status === 'online' ? 'bg-success' : 'bg-ink-muted'"
                   />
                   {{ server.status === 'online' ? 'Online' : 'Offline' }}
                 </span>
@@ -72,13 +72,13 @@ async function copyAddress(slug: string, address: string) {
               <!-- Row 3: 服务器地址 + 复制Button -->
               <div class="mt-3 flex items-center gap-2">
                 <code
-                  class="min-w-0 flex-1 truncate rounded-lg border border-line bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-ink-secondary"
+                  class="min-w-0 flex-1 truncate rounded-lg border border-line bg-overlay-weak px-3 py-1.5 font-mono text-xs text-ink-secondary"
                 >
                   {{ server.address }}
                 </code>
                 <button
                   type="button"
-                  class="btn-base shrink-0 border border-line bg-white/[0.03] px-2.5 py-1.5 text-xs text-ink-secondary hover:(border-line-strong bg-white/[0.06] text-ink) active:scale-[0.96]"
+                  class="btn-base shrink-0 border border-line bg-overlay-weak px-2.5 py-1.5 text-xs text-ink-secondary hover:(border-line-strong bg-overlay text-ink) active:scale-[0.96]"
                   :aria-label="`复制 ${server.game} 服务器地址`"
                   @click="copyAddress(server.slug, server.address)"
                 >
@@ -94,7 +94,7 @@ async function copyAddress(slug: string, address: string) {
                     <span
                       v-if="copiedSlug === server.slug"
                       key="done"
-                      class="inline-flex items-center gap-1 text-emerald-400"
+                      class="inline-flex items-center gap-1 text-success"
                     >
                       <Icon icon="ph:check" class="h-3.5 w-3.5" />
                       已复制

@@ -21,7 +21,7 @@ import { STAGGER_STEP } from '@/constants/animation'
         <BaseCard class="h-full p-5">
           <div class="flex items-start gap-4">
             <span
-              class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line bg-white/[0.03]"
+              class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line bg-overlay-weak"
             >
               <Icon :icon="item.icon" class="h-5 w-5 text-ink-secondary" />
             </span>

@@ -4,8 +4,8 @@
   "description": "专注于 AI 与现代 Web 技术的独立开发者工作室。",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#08090a",
-  "theme_color": "#08090a",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
   "icons": [
     {
       "src": "/favicon.svg",

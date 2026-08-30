@@ -1,16 +1,141 @@
-/* Global base styles — everything token-driven lives in uno.config.ts */
+/* Global base styles.
+ *
+ * All colors come from the theme tokens below. The `data-theme` attribute on
+ * <html> is set by the inline script in index.html before first paint (FOUC
+ * guard) and kept in sync by src/stores/theme.ts. `:root` holds the light
+ * values; `[data-theme='dark']` overrides them.
+ */
+
+/* ---- Theme tokens ------------------------------------------------------ */
 
 :root {
+  color-scheme: light;
+
+  /* Backgrounds */
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f7f7f8;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f4f4f5;
+
+  /* Text */
+  --color-text: #171717;
+  --color-text-secondary: #666666;
+  --color-text-muted: #999999;
+  --color-text-fade: rgba(23, 23, 23, 0.7);
+  --color-text-hover: #333333;
+
+  /* Hairline borders */
+  --color-border: #e5e5e5;
+  --color-border-strong: #d4d4d4;
+
+  /* Translucent overlays (hover fills, chips, code blocks) */
+  --color-overlay-weak: rgba(0, 0, 0, 0.03);
+  --color-overlay: rgba(0, 0, 0, 0.05);
+  --color-overlay-strong: rgba(0, 0, 0, 0.08);
+
+  /* Floating header / pills */
+  --color-header: rgba(255, 255, 255, 0.72);
+  --color-header-solid: rgba(255, 255, 255, 0.95);
+  --color-pill: rgba(255, 255, 255, 0.85);
+
+  /* Status accents */
+  --color-success: #047857;
+  --color-success-soft: rgba(4, 120, 87, 0.1);
+
+  /* Decorative FX (hero grid/beams, ambient glows, card highlight) */
+  --color-fx-grid: rgba(0, 0, 0, 0.05);
+  --color-fx-grid-faint: rgba(0, 0, 0, 0.03);
+  --color-fx-glow: rgba(0, 0, 0, 0.05);
+  --color-fx-glow-faint: rgba(0, 0, 0, 0.04);
+  --color-fx-beam: rgba(0, 0, 0, 0.14);
+  --color-fx-beam-faint: rgba(0, 0, 0, 0.07);
+  --color-fx-mark: rgba(0, 0, 0, 0.12);
+  --color-fx-mark-strong: rgba(0, 0, 0, 0.18);
+  --color-fx-mark-dot: rgba(0, 0, 0, 0.45);
+  --color-glow-a: rgba(0, 0, 0, 0.06);
+  --color-glow-b: rgba(0, 0, 0, 0.045);
+  --color-glow-c: rgba(0, 0, 0, 0.035);
+  --color-spotlight: rgba(0, 0, 0, 0.05);
+  --color-card-glow: rgba(0, 0, 0, 0.06);
+
+  /* Selection & scrollbar */
+  --color-selection-bg: rgba(0, 0, 0, 0.9);
+  --color-selection-text: #ffffff;
+  --color-scrollbar: rgba(0, 0, 0, 0.18);
+  --color-scrollbar-hover: rgba(0, 0, 0, 0.35);
+
+  /* Focus ring */
+  --color-focus-ring: rgba(0, 0, 0, 0.45);
+}
+
+[data-theme='dark'] {
   color-scheme: dark;
+
+  /* Backgrounds */
+  --color-bg: #0a0a0a;
+  --color-bg-secondary: #111111;
+  --color-surface: #141414;
+  --color-surface-hover: rgba(255, 255, 255, 0.06);
+
+  /* Text */
+  --color-text: #ededed;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #737373;
+  --color-text-fade: rgba(237, 237, 237, 0.7);
+  --color-text-hover: #c9c9c9;
+
+  /* Hairline borders */
+  --color-border: #262626;
+  --color-border-strong: #3f3f46;
+
+  /* Translucent overlays (hover fills, chips, code blocks) */
+  --color-overlay-weak: rgba(255, 255, 255, 0.03);
+  --color-overlay: rgba(255, 255, 255, 0.06);
+  --color-overlay-strong: rgba(255, 255, 255, 0.1);
+
+  /* Floating header / pills */
+  --color-header: rgba(10, 10, 10, 0.75);
+  --color-header-solid: rgba(10, 10, 10, 0.95);
+  --color-pill: rgba(10, 10, 10, 0.7);
+
+  /* Status accents */
+  --color-success: #34d399;
+  --color-success-soft: rgba(16, 185, 129, 0.12);
+
+  /* Decorative FX (hero grid/beams, ambient glows, card highlight) */
+  --color-fx-grid: rgba(255, 255, 255, 0.045);
+  --color-fx-grid-faint: rgba(255, 255, 255, 0.03);
+  --color-fx-glow: rgba(255, 255, 255, 0.07);
+  --color-fx-glow-faint: rgba(255, 255, 255, 0.05);
+  --color-fx-beam: rgba(255, 255, 255, 0.22);
+  --color-fx-beam-faint: rgba(255, 255, 255, 0.1);
+  --color-fx-mark: rgba(255, 255, 255, 0.1);
+  --color-fx-mark-strong: rgba(255, 255, 255, 0.16);
+  --color-fx-mark-dot: rgba(255, 255, 255, 0.5);
+  --color-glow-a: rgba(255, 255, 255, 0.14);
+  --color-glow-b: rgba(255, 255, 255, 0.1);
+  --color-glow-c: rgba(255, 255, 255, 0.08);
+  --color-spotlight: rgba(255, 255, 255, 0.06);
+  --color-card-glow: rgba(255, 255, 255, 0.06);
+
+  /* Selection & scrollbar */
+  --color-selection-bg: rgba(255, 255, 255, 0.9);
+  --color-selection-text: #0a0a0a;
+  --color-scrollbar: rgba(255, 255, 255, 0.12);
+  --color-scrollbar-hover: rgba(255, 255, 255, 0.22);
+
+  /* Focus ring */
+  --color-focus-ring: rgba(255, 255, 255, 0.4);
 }
 
 html {
   scroll-behavior: smooth;
+  scrollbar-color: var(--color-scrollbar) var(--color-bg);
 }
 
 body {
-  background-color: #08090a;
-  color: #f7f8f8;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   font-family:
     'Inter',
     ui-sans-serif,
@@ -30,8 +155,8 @@ body {
 }
 
 ::selection {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #08090a;
+  background-color: var(--color-selection-bg);
+  color: var(--color-selection-text);
 }
 
 /* Hairline scrollbar, GitHub/Linear style */
@@ -45,13 +170,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--color-scrollbar);
   border-radius: 8px;
-  border: 2px solid #08090a;
+  border: 2px solid var(--color-bg);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: var(--color-scrollbar-hover);
 }
 
 /* Respect users who prefer reduced motion */
@@ -67,6 +192,42 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Theme-switch cross-fade.
+ *
+ * The `theme-switching` class is added by the theme store only while a real
+ * runtime theme change is applied — never on first paint — so the initial
+ * load never flashes and never animates.
+ *
+ * Scope is deliberately narrow: only colour-ish longhands (background-color /
+ * border-color / color) on common UI elements. Decorative FX layers (blurred
+ * glows, hero grid/beams, card highlight) are NOT transition targets —
+ * gradients/filters/masks are not animatable, so transitioning them would
+ * only add useless work; they simply snap to their new token values.
+ */
+html.theme-switching body,
+html.theme-switching header,
+html.theme-switching footer,
+html.theme-switching nav,
+html.theme-switching section,
+html.theme-switching h1,
+html.theme-switching h2,
+html.theme-switching h3,
+html.theme-switching h4,
+html.theme-switching p,
+html.theme-switching a,
+html.theme-switching button,
+html.theme-switching code,
+html.theme-switching svg,
+html.theme-switching ol,
+html.theme-switching li,
+html.theme-switching span:not(.bg-fx__glow),
+html.theme-switching .hero-visual__fade {
+  transition:
+    background-color 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease;
 }
 
 /* Page transition (vue-router view) */

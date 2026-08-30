@@ -25,7 +25,7 @@ import { STAGGER_STEP } from '@/constants/animation'
           <BaseCard class="h-full p-5 transition-colors duration-200">
             <div class="flex items-start gap-4">
               <span
-                class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line bg-white/[0.03]"
+                class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line bg-overlay-weak"
               >
                 <Icon :icon="site.icon" class="h-5 w-5 text-ink-secondary" />
               </span>
@@ -38,13 +38,13 @@ import { STAGGER_STEP } from '@/constants/animation'
                     class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium"
                     :class="
                       site.status === 'online'
-                        ? 'bg-emerald-500/10 text-emerald-400'
-                        : 'bg-white/[0.04] text-ink-muted'
+                        ? 'bg-success-soft text-success'
+                        : 'bg-overlay text-ink-muted'
                     "
                   >
                     <span
                       class="h-1.5 w-1.5 rounded-full"
-                      :class="site.status === 'online' ? 'bg-emerald-400' : 'bg-ink-muted'"
+                      :class="site.status === 'online' ? 'bg-success' : 'bg-ink-muted'"
                     />
                     {{ site.status === 'online' ? 'Online' : 'Offline' }}
                   </span>
@@ -56,7 +56,7 @@ import { STAGGER_STEP } from '@/constants/animation'
                 <!-- Row 3: 域名 -->
                 <div class="mt-3">
                   <code
-                    class="inline-block truncate rounded-lg border border-line bg-white/[0.03] px-3 py-1.5 font-mono text-xs text-ink-secondary"
+                    class="inline-block truncate rounded-lg border border-line bg-overlay-weak px-3 py-1.5 font-mono text-xs text-ink-secondary"
                   >
                     {{ site.domain }}
                   </code>

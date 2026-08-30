@@ -1,11 +1,34 @@
 <script setup lang="ts">
 import { site, socialLinks } from '@/config'
+import { useThemeStore } from '@/stores/theme'
+import type { ThemeMode } from '@/stores/theme'
 
 const ui = useUiStore()
+const theme = useThemeStore()
 const { y } = useWindowScroll()
 const scrolled = computed(() => y.value > 8)
 
 const github = socialLinks.find((link) => link.name === 'GitHub')
+
+const themeIcon = computed(
+  () => (theme.mode === 'light' ? 'ph:sun' : theme.mode === 'dark' ? 'ph:moon' : 'ph:monitor'),
+)
+
+const themeModeLabel: Record<ThemeMode, string> = {
+  light: '浅色',
+  dark: '深色',
+  system: '跟随系统',
+}
+
+const themeActionLabel: Record<ThemeMode, string> = {
+  light: '切换到浅色主题',
+  dark: '切换到深色主题',
+  system: '跟随系统主题',
+}
+
+const themeLabel = computed(
+  () => `主题：${themeModeLabel[theme.mode]}，点击${themeActionLabel[theme.nextMode]}`,
+)
 
 function onNavClick() {
   ui.closeMenu()
@@ -17,7 +40,7 @@ function onNavClick() {
     class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
     :class="
       scrolled || ui.menuOpen
-        ? 'border-b border-line bg-bg/75 backdrop-blur-xl'
+        ? 'border-b border-line bg-header backdrop-blur-xl'
         : 'border-b border-transparent bg-transparent'
     "
   >
@@ -30,7 +53,7 @@ function onNavClick() {
           v-for="item in site.nav"
           :key="item.href"
           :href="item.href"
-          class="link-subtle rounded-lg px-3 py-1.5 text-sm hover:bg-white/[0.04]"
+          class="link-subtle rounded-lg px-3 py-1.5 text-sm hover:bg-overlay"
         >
           {{ item.label }}
         </a>
@@ -42,16 +65,27 @@ function onNavClick() {
           :href="github.href"
           target="_blank"
           rel="noopener noreferrer"
-          class="link-subtle hidden rounded-lg p-2 hover:bg-white/[0.04] md:inline-flex"
+          class="link-subtle hidden rounded-lg p-2 hover:bg-overlay md:inline-flex"
           :aria-label="github.name"
         >
           <Icon :icon="github.icon" class="h-4.5 w-4.5" />
         </a>
 
+        <!-- Theme toggle: cycles light → dark → system -->
+        <button
+          type="button"
+          class="link-subtle inline-flex rounded-lg p-2 hover:bg-overlay focus-visible:(outline-none ring-2 ring-focus ring-offset-2 ring-offset-bg)"
+          :aria-label="themeLabel"
+          :title="themeLabel"
+          @click="theme.cycle()"
+        >
+          <Icon :icon="themeIcon" class="h-4.5 w-4.5" />
+        </button>
+
         <!-- Mobile menu toggle -->
         <button
           type="button"
-          class="link-subtle inline-flex rounded-lg p-2 hover:bg-white/[0.04] md:hidden"
+          class="link-subtle inline-flex rounded-lg p-2 hover:bg-overlay md:hidden"
           :aria-expanded="ui.menuOpen"
           aria-label="Toggle menu"
           @click="ui.toggleMenu()"
@@ -72,7 +106,7 @@ function onNavClick() {
     >
       <nav
         v-if="ui.menuOpen"
-        class="border-t border-line bg-bg/95 backdrop-blur-xl md:hidden"
+        class="border-t border-line bg-header-solid backdrop-blur-xl md:hidden"
         aria-label="Mobile"
       >
         <div class="container-page flex flex-col gap-1 py-4">
@@ -80,7 +114,7 @@ function onNavClick() {
             v-for="item in site.nav"
             :key="item.href"
             :href="item.href"
-            class="link-subtle rounded-lg px-3 py-2.5 text-sm hover:bg-white/[0.04]"
+            class="link-subtle rounded-lg px-3 py-2.5 text-sm hover:bg-overlay"
             @click="onNavClick"
           >
             {{ item.label }}

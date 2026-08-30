@@ -12,7 +12,7 @@ const { glowStyle } = useCardGlow(root)
         opacity: var(--glow-o, 0);
         background: radial-gradient(
           320px circle at var(--glow-x) var(--glow-y),
-          rgba(255, 255, 255, 0.06),
+          var(--color-card-glow),
           transparent 65%
         );
       "

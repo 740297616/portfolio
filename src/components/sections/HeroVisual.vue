@@ -21,8 +21,8 @@ const parallaxStyle = computed(() => ({
       class="absolute inset-0"
       style="
         background-image:
-          linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+          linear-gradient(var(--color-fx-grid) 1px, transparent 1px),
+          linear-gradient(90deg, var(--color-fx-grid) 1px, transparent 1px);
         background-size: 72px 72px;
         mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, black 30%, transparent 75%);
         -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, black 30%, transparent 75%);
@@ -32,19 +32,19 @@ const parallaxStyle = computed(() => ({
     <!-- Soft top glow -->
     <div
       class="absolute left-1/2 top-[-240px] h-[480px] w-[720px] -translate-x-1/2 rounded-full"
-      style="background: radial-gradient(closest-side, rgba(255, 255, 255, 0.07), transparent)"
+      style="background: radial-gradient(closest-side, var(--color-fx-glow), transparent)"
     />
 
     <!-- Horizontal gradient beams -->
     <div
       class="absolute left-1/2 top-[32%] h-px w-[min(90vw,900px)] -translate-x-1/2"
       style="
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+        background: linear-gradient(90deg, transparent, var(--color-fx-beam), transparent);
       "
     />
     <div
       class="absolute left-1/2 top-[68%] h-px w-[min(70vw,640px)] -translate-x-1/2"
-      style="background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)"
+      style="background: linear-gradient(90deg, transparent, var(--color-fx-beam-faint), transparent)"
     />
 
     <!-- Rotating geometric mark -->
@@ -59,7 +59,7 @@ const parallaxStyle = computed(() => ({
         width="120"
         height="120"
         rx="18"
-        stroke="rgba(255,255,255,0.10)"
+        style="stroke: var(--color-fx-mark)"
         transform="rotate(45 100 100)"
       />
       <rect
@@ -68,16 +68,27 @@ const parallaxStyle = computed(() => ({
         width="84"
         height="84"
         rx="12"
-        stroke="rgba(255,255,255,0.16)"
+        style="stroke: var(--color-fx-mark-strong)"
         transform="rotate(45 100 100)"
       />
-      <circle cx="100" cy="100" r="3" fill="rgba(255,255,255,0.5)" />
+      <circle cx="100" cy="100" r="3" style="fill: var(--color-fx-mark-dot)" />
     </svg>
 
-    <!-- Bottom fade into the page background -->
+    <!-- Bottom fade into the page background.
+         Implemented as a solid `background-color` (animatable during theme
+         switch) + a static alpha mask (never changes) so the fade eases in
+         sync with the page background instead of snapping. -->
     <div
-      class="absolute inset-x-0 bottom-0 h-40"
-      style="background: linear-gradient(transparent, #08090a)"
+      class="hero-visual__fade absolute inset-x-0 bottom-0 h-40"
+      aria-hidden="true"
     />
   </div>
 </template>
+
+<style scoped>
+.hero-visual__fade {
+  background-color: var(--color-bg);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000);
+  mask-image: linear-gradient(to bottom, transparent, #000);
+}
+</style>

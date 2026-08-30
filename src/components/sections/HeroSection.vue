@@ -25,7 +25,7 @@ const enter = (delay: number) => ({
           class="block"
           :class="
             i === 0
-              ? 'bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent'
+              ? 'text-ink hero-headline-fade'
               : 'text-ink-secondary'
           "
           v-bind="enter(0.1 + i * 0.12)"
@@ -50,3 +50,15 @@ const enter = (delay: number) => ({
     </div>
   </section>
 </template>
+
+<style scoped>
+/* Soft vertical fade on the first headline line.
+ * The colour itself is `--color-text` (transitions with the theme); this
+ * static mask only fades its alpha 1 → 0.7, replicating the previous
+ * `from-ink to-ink-fade` gradient without an un-animatable background.
+ */
+.hero-headline-fade {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.7) 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.7) 100%);
+}
+</style>

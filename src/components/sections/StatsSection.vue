@@ -4,7 +4,7 @@ import { STAGGER_STEP } from '@/constants/animation'
 </script>
 
 <template>
-  <section class="border-y border-line bg-white/[0.015]">
+  <section class="border-y border-line bg-overlay-weak">
     <div class="container-page py-14 md:py-16">
       <div class="grid grid-cols-2 gap-8 lg:grid-cols-4">
         <RevealMotion

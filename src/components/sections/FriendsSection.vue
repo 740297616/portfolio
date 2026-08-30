@@ -30,7 +30,7 @@ import { STAGGER_STEP } from '@/constants/animation'
               </span>
               <span
                 v-else
-                class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-line bg-white/[0.03]"
+                class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-line bg-overlay-weak"
               >
                 <Icon
                   :icon="friend.icon || 'ph:user'"

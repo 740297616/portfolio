@@ -22,7 +22,7 @@ const kindMeta: Record<TimelineKind, { icon: string; label: string }> = {
     <div class="relative max-w-2xl">
       <!-- Vertical line -->
       <div
-        class="absolute bottom-2 left-[11px] top-2 w-px bg-gradient-to-b from-white/20 via-line to-transparent"
+        class="absolute bottom-2 left-[11px] top-2 w-px bg-gradient-to-b via-line to-transparent"
         aria-hidden="true"
       />
 
@@ -34,7 +34,7 @@ const kindMeta: Record<TimelineKind, { icon: string; label: string }> = {
               <span
                 class="absolute left-0 top-0.5 grid h-6 w-6 place-items-center rounded-full border border-line-strong bg-bg"
               >
-                <span class="h-1.5 w-1.5 rounded-full bg-ink/80" />
+                <span class="h-1.5 w-1.5 rounded-full bg-ink" />
               </span>
 
               <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-muted">

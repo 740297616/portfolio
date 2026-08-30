@@ -22,7 +22,7 @@ const year = new Date().getFullYear()
             :href="link.href"
             target="_blank"
             rel="noopener noreferrer"
-            class="link-subtle rounded-lg p-2 hover:bg-white/[0.04]"
+            class="link-subtle rounded-lg p-2 hover:bg-overlay"
             :aria-label="link.name"
           >
             <Icon :icon="link.icon" class="h-4.5 w-4.5" />

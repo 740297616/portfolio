@@ -36,7 +36,7 @@ const email = socialLinks.find((link) => link.name === 'Email')
             :href="link.href"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex items-center justify-between rounded-xl border border-line bg-white/[0.02] px-4 py-3.5 transition-all duration-300 hover:(border-line-strong bg-white/[0.04])"
+            class="group flex items-center justify-between rounded-xl border border-line bg-overlay-weak px-4 py-3.5 transition-all duration-300 hover:(border-line-strong bg-overlay)"
           >
             <span class="flex items-center gap-3">
               <Icon :icon="link.icon" class="h-4.5 w-4.5 text-ink-secondary" />

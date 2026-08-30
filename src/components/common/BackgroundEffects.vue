@@ -52,7 +52,7 @@ const { spotlightStyle } = useMouseSpotlight({ disabled: reducedMotion })
   left: -12%;
   width: 46vw;
   height: 46vw;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.14), transparent 70%);
+  background: radial-gradient(circle at center, var(--color-glow-a), transparent 70%);
   opacity: 0.12;
   animation: bg-fx-drift-a 26s ease-in-out infinite;
 }
@@ -63,7 +63,7 @@ const { spotlightStyle } = useMouseSpotlight({ disabled: reducedMotion })
   right: -16%;
   width: 40vw;
   height: 40vw;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 70%);
+  background: radial-gradient(circle at center, var(--color-glow-b), transparent 70%);
   opacity: 0.09;
   animation: bg-fx-drift-b 30s ease-in-out infinite;
 }
@@ -74,7 +74,7 @@ const { spotlightStyle } = useMouseSpotlight({ disabled: reducedMotion })
   left: 30%;
   width: 52vw;
   height: 52vw;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08), transparent 70%);
+  background: radial-gradient(circle at center, var(--color-glow-c), transparent 70%);
   opacity: 0.07;
   animation: bg-fx-drift-c 34s ease-in-out infinite;
 }
@@ -121,7 +121,7 @@ const { spotlightStyle } = useMouseSpotlight({ disabled: reducedMotion })
   transition: opacity 0.6s ease;
   background: radial-gradient(
     500px circle at var(--spot-x, 50%) var(--spot-y, 50%),
-    rgba(255, 255, 255, 0.06),
+    var(--color-spotlight),
     transparent 65%
   );
 }

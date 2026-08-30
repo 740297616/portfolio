@@ -6,7 +6,7 @@ import { site } from '@/config'
   <a href="#top" class="group inline-flex items-center gap-2.5">
     <!-- Geometric logomark: rotated square outline -->
     <span
-      class="grid h-6 w-6 place-items-center rounded-md border border-line-strong transition-colors duration-300 group-hover:border-white/40"
+      class="grid h-6 w-6 place-items-center rounded-md border border-line-strong transition-colors duration-300 group-hover:border-line-strong"
       aria-hidden="true"
     >
       <span

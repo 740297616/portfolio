@@ -6,8 +6,10 @@ import {
 } from 'unocss'
 
 /**
- * Design tokens — Linear/Vercel-inspired dark monochrome system.
- * Every color used in the app is defined here; components never hardcode hex values.
+ * Design tokens — Linear/Vercel-inspired monochrome system.
+ * Every color is a CSS custom property defined in `src/styles/main.css`
+ * per theme (`[data-theme="light" | "dark"]` on <html>); UnoCSS utilities
+ * simply reference those variables. Components never hardcode color values.
  */
 export default defineConfig({
   presets: [presetWind3()],
@@ -16,21 +18,47 @@ export default defineConfig({
     colors: {
       // Backgrounds
       bg: {
-        DEFAULT: '#08090a',
-        soft: '#0d0e10',
-        raised: '#121316',
+        DEFAULT: 'var(--color-bg)',
+        soft: 'var(--color-bg-secondary)',
+        raised: 'var(--color-surface)',
+      },
+      // Surfaces (cards, raised panels)
+      surface: {
+        DEFAULT: 'var(--color-surface)',
+        hover: 'var(--color-surface-hover)',
       },
       // Foregrounds
       ink: {
-        DEFAULT: '#f7f8f8',
-        secondary: '#9a9fa8',
-        muted: '#63676f',
+        DEFAULT: 'var(--color-text)',
+        secondary: 'var(--color-text-secondary)',
+        muted: 'var(--color-text-muted)',
+        hover: 'var(--color-text-hover)',
+        fade: 'var(--color-text-fade)',
       },
       // Hairline borders
       line: {
-        DEFAULT: 'rgba(255,255,255,0.08)',
-        strong: 'rgba(255,255,255,0.16)',
+        DEFAULT: 'var(--color-border)',
+        strong: 'var(--color-border-strong)',
       },
+      // Translucent overlays (hover fills, chips, code blocks)
+      overlay: {
+        weak: 'var(--color-overlay-weak)',
+        DEFAULT: 'var(--color-overlay)',
+        strong: 'var(--color-overlay-strong)',
+      },
+      // Floating header / pills
+      header: {
+        DEFAULT: 'var(--color-header)',
+        solid: 'var(--color-header-solid)',
+      },
+      pill: 'var(--color-pill)',
+      // Status accents
+      success: {
+        DEFAULT: 'var(--color-success)',
+        soft: 'var(--color-success-soft)',
+      },
+      // Focus ring
+      focus: 'var(--color-focus-ring)',
     },
     fontFamily: {
       sans: `'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif`,
@@ -54,16 +82,16 @@ export default defineConfig({
 
     // Surfaces
     'card-surface':
-      'rounded-2xl border border-line bg-white/[0.02] transition-colors duration-300',
-    'card-hover': 'hover:border-line-strong hover:bg-white/[0.04]',
+      'rounded-2xl border border-line bg-surface transition-colors duration-300',
+    'card-hover': 'hover:border-line-strong hover:bg-surface-hover',
 
     // Interactive
     'btn-base':
-      'inline-flex items-center justify-center gap-2 rounded-xl text-sm font-medium transition-all duration-200 focus-visible:(outline-none ring-2 ring-white/40 ring-offset-2 ring-offset-bg)',
+      'inline-flex items-center justify-center gap-2 rounded-xl text-sm font-medium transition-all duration-200 focus-visible:(outline-none ring-2 ring-focus ring-offset-2 ring-offset-bg)',
     'btn-primary':
-      'btn-base bg-ink text-bg px-5 py-2.5 hover:bg-white/85 active:scale-[0.98]',
+      'btn-base bg-ink text-bg px-5 py-2.5 hover:bg-ink-hover active:scale-[0.98]',
     'btn-secondary':
-      'btn-base border border-line bg-white/[0.03] px-5 py-2.5 text-ink hover:(border-line-strong bg-white/[0.06]) active:scale-[0.98]',
+      'btn-base border border-line bg-overlay-weak px-5 py-2.5 text-ink hover:(border-line-strong bg-overlay) active:scale-[0.98]',
     'link-subtle':
       'text-ink-secondary transition-colors duration-200 hover:text-ink',
   },
