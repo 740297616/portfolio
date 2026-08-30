@@ -1,8 +1,7 @@
 import type { GameServer } from '@/types/content'
 
 /**
- * Game servers — add new entries here, no component changes needed.
- * Status is manually maintained for now; swap with a runtime API later if needed.
+ * 游戏服务器；状态目前手动维护，后续可换成运行时 API。
  */
 export const gameServers: GameServer[] = [
   {
@@ -10,7 +9,7 @@ export const gameServers: GameServer[] = [
     game: 'Minecraft',
     icon: 'simple-icons:minecraft',
     status: 'online',
-    // players: { current: 3, max: 20 }, // 游戏人数 todo是否可实现实时查询？
+    // players: { current: 3, max: 20 }, // TODO: 是否可实现实时查询人数？
     version: 'vanilla-snapshot-26.3-snapshot-9',
     address: 'frp-bid.com:58015',
   },

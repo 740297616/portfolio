@@ -1,15 +1,10 @@
 <script setup lang="ts">
 /**
- * Global ambient background — three fixed, non-interactive layers behind all
- * content. Monochrome and deliberately faint: drifting soft glows, a
- * mouse-follow spotlight, and a barely-there noise grain. Designed to read as
- * "static but alive" (Linear / Vercel / Raycast territory), never techy or busy.
- *
- * Fully disabled when the user prefers reduced motion.
+ * 全局背景装饰：三层固定且不参与交互的层（漂移柔光 / 鼠标聚光 / 噪点）。
+ * 纯单色、刻意保持低存在感，prefers-reduced-motion 时整体停用。
  */
 import { useMouseSpotlight } from '@/composables/useMouseSpotlight'
 
-// `false` when the user has no preference, `true` when they want less motion.
 const reducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
 
 const { spotlightStyle } = useMouseSpotlight({ disabled: reducedMotion })
@@ -17,23 +12,23 @@ const { spotlightStyle } = useMouseSpotlight({ disabled: reducedMotion })
 
 <template>
   <div class="bg-fx pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
-    <!-- Drifting soft glows -->
+    <!-- 漂移柔光 -->
     <div class="bg-fx__glows" :class="{ 'bg-fx__glows--static': reducedMotion }">
       <span class="bg-fx__glow bg-fx__glow--a" />
       <span class="bg-fx__glow bg-fx__glow--b" />
       <span class="bg-fx__glow bg-fx__glow--c" />
     </div>
 
-    <!-- Mouse-follow spotlight (hidden entirely under reduced motion) -->
+    <!-- 鼠标聚光（reduced motion 下隐藏） -->
     <div v-if="!reducedMotion" class="bg-fx__spotlight" :style="spotlightStyle" />
 
-    <!-- Fine grain overlay -->
+    <!-- 噪点层 -->
     <div class="bg-fx__noise" />
   </div>
 </template>
 
 <style scoped>
-/* ---- Drifting soft glows ------------------------------------------------ */
+/* 漂移柔光 */
 .bg-fx__glows {
   position: absolute;
   inset: 0;
@@ -46,7 +41,7 @@ const { spotlightStyle } = useMouseSpotlight({ disabled: reducedMotion })
   will-change: transform;
 }
 
-/* Top-left cool white pool */
+/* 左上冷白光晕 */
 .bg-fx__glow--a {
   top: -18%;
   left: -12%;
@@ -57,7 +52,7 @@ const { spotlightStyle } = useMouseSpotlight({ disabled: reducedMotion })
   animation: bg-fx-drift-a 26s ease-in-out infinite;
 }
 
-/* Right-mid faint pool */
+/* 右侧淡光晕 */
 .bg-fx__glow--b {
   top: 8%;
   right: -16%;
@@ -68,7 +63,7 @@ const { spotlightStyle } = useMouseSpotlight({ disabled: reducedMotion })
   animation: bg-fx-drift-b 30s ease-in-out infinite;
 }
 
-/* Bottom-center anchor pool */
+/* 底部中间锚点光晕 */
 .bg-fx__glow--c {
   bottom: -22%;
   left: 30%;
@@ -113,7 +108,7 @@ const { spotlightStyle } = useMouseSpotlight({ disabled: reducedMotion })
   }
 }
 
-/* ---- Mouse spotlight ----------------------------------------------------- */
+/* 鼠标聚光 */
 .bg-fx__spotlight {
   position: absolute;
   inset: 0;
@@ -126,7 +121,7 @@ const { spotlightStyle } = useMouseSpotlight({ disabled: reducedMotion })
   );
 }
 
-/* ---- Noise grain --------------------------------------------------------- */
+/* 噪点 */
 .bg-fx__noise {
   position: absolute;
   inset: 0;

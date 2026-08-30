@@ -17,7 +17,7 @@ import { STAGGER_STEP } from '@/constants/animation'
         <a :href="friend.href" target="_blank" rel="noopener noreferrer" class="block h-full">
           <BaseCard class="h-full p-5 transition-colors duration-200">
             <div class="flex items-center gap-4">
-              <!-- Avatar or Icon -->
+              <!-- 头像，缺省时用图标兜底 -->
               <span
                 v-if="friend.avatar"
                 class="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-full border border-line"

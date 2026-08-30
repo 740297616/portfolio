@@ -31,7 +31,7 @@ import { STAGGER_STEP } from '@/constants/animation'
               </span>
 
               <div class="min-w-0 flex-1">
-                <!-- Row 1: 站点名称 + 状态 -->
+                <!-- 名称 + 状态 -->
                 <div class="flex items-center gap-2">
                   <h4 class="truncate text-sm font-medium text-ink">{{ site.name }}</h4>
                   <span
@@ -50,10 +50,10 @@ import { STAGGER_STEP } from '@/constants/animation'
                   </span>
                 </div>
 
-                <!-- Row 2: 描述 -->
+                <!-- 描述 -->
                 <p class="mt-1 text-xs text-ink-muted">{{ site.description }}</p>
 
-                <!-- Row 3: 域名 -->
+                <!-- 域名 -->
                 <div class="mt-3">
                   <code
                     class="inline-block truncate rounded-lg border border-line bg-overlay-weak px-3 py-1.5 font-mono text-xs text-ink-secondary"

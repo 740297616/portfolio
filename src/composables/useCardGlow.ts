@@ -1,8 +1,7 @@
 import type { CSSProperties, Ref } from 'vue'
 
 /**
- * Mouse-follow highlight for cards: exposes CSS custom properties
- * (`--glow-x` / `--glow-y` / `--glow-o`) consumed by a radial-gradient overlay.
+ * 卡片鼠标高光：暴露 CSS variables（--glow-x/y/o），由 radial-gradient overlay 消费。
  */
 export function useCardGlow(target: Ref<HTMLElement | null>) {
   const x = ref(0)

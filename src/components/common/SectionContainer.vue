@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  /** Anchor id used by nav links, e.g. `projects` */
+  /** 导航锚点 id，如 projects */
   id: string
 }>()
 </script>

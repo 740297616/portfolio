@@ -1,7 +1,7 @@
 import type { HeroConfig, SiteConfig } from '@/types/content'
 
 /**
- * Global site identity — edit here, never in components.
+ * 站点全局信息，统一在这里改，组件不写死内容。
  */
 export const site: SiteConfig = {
   name: 'Lydia Studio',
@@ -20,8 +20,7 @@ export const site: SiteConfig = {
 }
 
 /**
- * Hero copy variants — one is picked at random on each page load.
- * Add / edit variants here; components never hardcode this content.
+ * Hero 文案多版本，每次加载随机选一条；直接改这里即可。
  */
 export const heroVariants: HeroConfig[] = [
   {
@@ -54,13 +53,11 @@ export const heroVariants: HeroConfig[] = [
   },
 ]
 
-/** Pick a random hero variant — different on each refresh. */
+/** 每次刷新随机选一个 variant */
 export function getRandomHero(): HeroConfig {
   const index = Math.floor(Math.random() * heroVariants.length)
   return heroVariants[index] ?? heroVariants[0]!
 }
 
-/** Default variant, kept for static references. */
+/** 固定取第一个作为默认版本 */
 export const hero: HeroConfig = heroVariants[0]!
-
-

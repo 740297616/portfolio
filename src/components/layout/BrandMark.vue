@@ -4,7 +4,7 @@ import { site } from '@/config'
 
 <template>
   <a href="#top" class="group inline-flex items-center gap-2.5">
-    <!-- Geometric logomark: rotated square outline -->
+    <!-- 旋转方框 logo 标记 -->
     <span
       class="grid h-6 w-6 place-items-center rounded-md border border-line-strong transition-colors duration-300 group-hover:border-line-strong"
       aria-hidden="true"

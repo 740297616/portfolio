@@ -47,7 +47,7 @@ function onNavClick() {
     <div class="container-page flex h-16 items-center justify-between">
       <BrandMark />
 
-      <!-- Desktop nav -->
+      <!-- 桌面端导航 -->
       <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
         <a
           v-for="item in site.nav"
@@ -71,7 +71,7 @@ function onNavClick() {
           <Icon :icon="github.icon" class="h-4.5 w-4.5" />
         </a>
 
-        <!-- Theme toggle: cycles light → dark → system -->
+        <!-- 主题按钮：light → dark → system 循环 -->
         <button
           type="button"
           class="link-subtle inline-flex rounded-lg p-2 hover:bg-overlay focus-visible:(outline-none ring-2 ring-focus ring-offset-2 ring-offset-bg)"
@@ -82,7 +82,7 @@ function onNavClick() {
           <Icon :icon="themeIcon" class="h-4.5 w-4.5" />
         </button>
 
-        <!-- Mobile menu toggle -->
+        <!-- 移动端菜单按钮 -->
         <button
           type="button"
           class="link-subtle inline-flex rounded-lg p-2 hover:bg-overlay md:hidden"
@@ -95,7 +95,7 @@ function onNavClick() {
       </div>
     </div>
 
-    <!-- Mobile menu -->
+    <!-- 移动端菜单 -->
     <Transition
       enter-active-class="transition duration-200 ease-out"
       enter-from-class="opacity-0 -translate-y-2"

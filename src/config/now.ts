@@ -1,6 +1,6 @@
 import type { NowItem } from '@/types/content'
 
-/** What I'm focused on right now — keep it short and current. */
+/** 当前在做的事，保持简短与时效性 */
 export const nowItems: NowItem[] = [
   {
     icon: 'ph:briefcase-duotone',

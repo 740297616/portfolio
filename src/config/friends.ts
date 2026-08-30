@@ -1,11 +1,9 @@
 import type { FriendLink } from '@/types/content'
 
 /**
- * Friend links (友链) — sites & people worth visiting.
- * Add new entries here, no component changes needed.
- *
- * avatar: 头像直链 URL（支持任意外部图片链接）
- * icon:   Iconify 图标名（当 avatar 未提供时显示）
+ * 友链，新增直接加在数组里即可。
+ * avatar: 头像直链 URL（支持任意外部图片）
+ * icon:   Iconify 图标名（未提供 avatar 时显示）
  */
 export const friendLinks: FriendLink[] = [
   {

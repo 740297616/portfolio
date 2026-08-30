@@ -1,10 +1,7 @@
 import type { Project } from '@/types/content'
 
 /**
- * Featured projects — add new entries here, no component changes needed.
- * `pinned: true` sorts a project to the front.
- * `image` is a path under /public (e.g. `/projects/foo.png`); a styled
- * placeholder is rendered when omitted.
+ * 精选项目；pinned 置顶，image 为 /public 下路径，缺省渲染占位图。
  */
 export const projects: Project[] = [
   {
@@ -48,7 +45,7 @@ export const projects: Project[] = [
   },
 ]
 
-/** Pinned first, original order otherwise. */
+/** pinned 的排在最前，其余保持原顺序 */
 export const sortedProjects: Project[] = [...projects].sort(
   (a, b) => Number(b.pinned ?? false) - Number(a.pinned ?? false),
 )

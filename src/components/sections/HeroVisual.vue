@@ -1,8 +1,7 @@
 <script setup lang="ts">
 /**
- * Decorative background for the hero: masked grid, soft glow,
- * gradient beams and a slowly rotating geometric mark.
- * Subtle parallax — the layer drifts slower than the content.
+ * Hero 装饰背景：网格 + 柔光 + 光束 + 缓慢旋转的几何标记。
+ * 视差效果让这一层比内容移动得更慢。
  */
 const { y } = useWindowScroll()
 const parallaxStyle = computed(() => ({
@@ -16,7 +15,7 @@ const parallaxStyle = computed(() => ({
     :style="parallaxStyle"
     aria-hidden="true"
   >
-    <!-- Grid, faded out radially -->
+    <!-- 网格，径向渐隐 -->
     <div
       class="absolute inset-0"
       style="
@@ -29,13 +28,13 @@ const parallaxStyle = computed(() => ({
       "
     />
 
-    <!-- Soft top glow -->
+    <!-- 顶部柔光 -->
     <div
       class="absolute left-1/2 top-[-240px] h-[480px] w-[720px] -translate-x-1/2 rounded-full"
       style="background: radial-gradient(closest-side, var(--color-fx-glow), transparent)"
     />
 
-    <!-- Horizontal gradient beams -->
+    <!-- 横向光束 -->
     <div
       class="absolute left-1/2 top-[32%] h-px w-[min(90vw,900px)] -translate-x-1/2"
       style="
@@ -47,7 +46,7 @@ const parallaxStyle = computed(() => ({
       style="background: linear-gradient(90deg, transparent, var(--color-fx-beam-faint), transparent)"
     />
 
-    <!-- Rotating geometric mark -->
+    <!-- 旋转几何标记 -->
     <svg
       class="absolute right-[6%] top-[22%] hidden h-72 w-72 animate-[spin_60s_linear_infinite] lg:block"
       viewBox="0 0 200 200"
@@ -74,10 +73,8 @@ const parallaxStyle = computed(() => ({
       <circle cx="100" cy="100" r="3" style="fill: var(--color-fx-mark-dot)" />
     </svg>
 
-    <!-- Bottom fade into the page background.
-         Implemented as a solid `background-color` (animatable during theme
-         switch) + a static alpha mask (never changes) so the fade eases in
-         sync with the page background instead of snapping. -->
+    <!-- 底部淡出到页面背景：solid background-color（可过渡）+ 静态 mask（不变），
+         让 fade 和页面背景同步过渡而不是瞬变 -->
     <div
       class="hero-visual__fade absolute inset-x-0 bottom-0 h-40"
       aria-hidden="true"

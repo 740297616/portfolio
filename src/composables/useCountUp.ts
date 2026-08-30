@@ -1,13 +1,12 @@
 import type { MaybeRefOrGetter, Ref } from 'vue'
 
 interface UseCountUpOptions {
-  /** Animation length in ms */
+  /** 动画时长，ms */
   duration?: number
 }
 
 /**
- * Counts from 0 to `value` with an ease-out curve, starting when `el`
- * first enters the viewport. Respects `prefers-reduced-motion`.
+ * 元素进入视口后从 0 数到 `value`，ease-out 曲线；尊重 prefers-reduced-motion。
  */
 export function useCountUp(
   el: Ref<HTMLElement | null>,

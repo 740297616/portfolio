@@ -3,9 +3,9 @@ import { motion } from 'motion-v'
 import { EASE_OUT_EXPO, REVEAL_DURATION } from '@/constants/animation'
 
 interface Props {
-  /** Delay in seconds — use for staggering siblings */
+  /** 延迟（秒），用于兄弟元素交错出现 */
   delay?: number
-  /** Initial vertical offset in px */
+  /** 初始垂直偏移，px */
   y?: number
   once?: boolean
 }

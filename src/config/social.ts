@@ -1,6 +1,6 @@
 import type { SocialLink } from '@/types/content'
 
-/** Contact channels. TODO: replace handles with your own. */
+/** 联系方式 */
 export const socialLinks: SocialLink[] = [
   {
     name: 'GitHub',

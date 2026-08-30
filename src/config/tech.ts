@@ -1,9 +1,8 @@
 import type { TechCategory } from '@/types/content'
 
 /**
- * Tech stack grouped by category.
- * `level`: expert | proficient | familiar; `years` is optional.
- * Icons come from Iconify (https://icones.js.org).
+ * 技术栈按分类分组；level 取值 expert | proficient | familiar，years 可选。
+ * 图标来自 Iconify（https://icones.js.org）。
  */
 export const techCategories: TechCategory[] = [
   {

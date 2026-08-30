@@ -1,6 +1,6 @@
 import type { TimelineItem } from '@/types/content'
 
-/** Growth record, newest first. */
+/** 成长记录，新的在前 */
 export const timeline: TimelineItem[] = [
   {
     date: '2026',

@@ -1,8 +1,6 @@
 import type { PersonalSite } from '@/types/content'
 
-/**
- * Personal sites — add new entries here, no component changes needed.
- */
+/** 个人站点，新增加在数组里即可 */
 export const personalSites: PersonalSite[] = [
   {
     slug: 'blog',

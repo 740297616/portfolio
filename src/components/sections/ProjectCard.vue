@@ -3,13 +3,13 @@ import type { Project } from '@/types/content'
 
 const props = defineProps<{ project: Project }>()
 
-/** Monogram shown on the screenshot placeholder */
+/** 占位图上的首字母 */
 const initial = computed(() => props.project.title.charAt(0).toUpperCase())
 </script>
 
 <template>
   <BaseCard class="flex h-full flex-col">
-    <!-- Screenshot (placeholder until `image` is provided) -->
+    <!-- 截图（未提供 image 时渲染占位） -->
     <div class="relative aspect-[16/9] overflow-hidden rounded-t-2xl border-b border-line">
       <img
         v-if="project.image"

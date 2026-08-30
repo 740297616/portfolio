@@ -23,7 +23,7 @@ export default defineConfig({
       dirs: ['src/components'],
       dts: 'src/types/components.d.ts',
       resolvers: [
-        // <Icon icon="..." /> → @iconify/vue
+        // 模板里的 <Icon> 解析到 @iconify/vue
         (name) => (name === 'Icon' ? { name: 'Icon', from: '@iconify/vue' } : undefined),
       ],
     }),

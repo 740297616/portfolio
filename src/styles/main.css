@@ -1,48 +1,46 @@
-/* Global base styles.
+/* 全局基础样式。
  *
- * All colors come from the theme tokens below. The `data-theme` attribute on
- * <html> is set by the inline script in index.html before first paint (FOUC
- * guard) and kept in sync by src/stores/theme.ts. `:root` holds the light
- * values; `[data-theme='dark']` overrides them.
+ * 所有颜色统一走下面的 theme token；<html> 上的 data-theme 由 index.html
+ * 内联脚本在首次 paint 前设置（FOUC 防护），运行时由 src/stores/theme.ts 维护。
  */
 
-/* ---- Theme tokens ------------------------------------------------------ */
+/* Theme tokens */
 
 :root {
   color-scheme: light;
 
-  /* Backgrounds */
+  /* 背景 */
   --color-bg: #ffffff;
   --color-bg-secondary: #f7f7f8;
   --color-surface: #ffffff;
   --color-surface-hover: #f4f4f5;
 
-  /* Text */
+  /* 文字 */
   --color-text: #171717;
   --color-text-secondary: #666666;
   --color-text-muted: #999999;
   --color-text-fade: rgba(23, 23, 23, 0.7);
   --color-text-hover: #333333;
 
-  /* Hairline borders */
+  /* 发丝边框 */
   --color-border: #e5e5e5;
   --color-border-strong: #d4d4d4;
 
-  /* Translucent overlays (hover fills, chips, code blocks) */
+  /* 半透明叠加层（hover、标签、代码块） */
   --color-overlay-weak: rgba(0, 0, 0, 0.03);
   --color-overlay: rgba(0, 0, 0, 0.05);
   --color-overlay-strong: rgba(0, 0, 0, 0.08);
 
-  /* Floating header / pills */
+  /* 悬浮头部 / 胶囊 */
   --color-header: rgba(255, 255, 255, 0.72);
   --color-header-solid: rgba(255, 255, 255, 0.95);
   --color-pill: rgba(255, 255, 255, 0.85);
 
-  /* Status accents */
+  /* 状态色 */
   --color-success: #047857;
   --color-success-soft: rgba(4, 120, 87, 0.1);
 
-  /* Decorative FX (hero grid/beams, ambient glows, card highlight) */
+  /* 装饰动效（hero 网格/光束、背景柔光、卡片高光） */
   --color-fx-grid: rgba(0, 0, 0, 0.05);
   --color-fx-grid-faint: rgba(0, 0, 0, 0.03);
   --color-fx-glow: rgba(0, 0, 0, 0.05);
@@ -58,51 +56,51 @@
   --color-spotlight: rgba(0, 0, 0, 0.05);
   --color-card-glow: rgba(0, 0, 0, 0.06);
 
-  /* Selection & scrollbar */
+  /* 选区与滚动条 */
   --color-selection-bg: rgba(0, 0, 0, 0.9);
   --color-selection-text: #ffffff;
   --color-scrollbar: rgba(0, 0, 0, 0.18);
   --color-scrollbar-hover: rgba(0, 0, 0, 0.35);
 
-  /* Focus ring */
+  /* focus 光环 */
   --color-focus-ring: rgba(0, 0, 0, 0.45);
 }
 
 [data-theme='dark'] {
   color-scheme: dark;
 
-  /* Backgrounds */
+  /* 背景 */
   --color-bg: #0a0a0a;
   --color-bg-secondary: #111111;
   --color-surface: #141414;
   --color-surface-hover: rgba(255, 255, 255, 0.06);
 
-  /* Text */
+  /* 文字 */
   --color-text: #ededed;
   --color-text-secondary: #a1a1aa;
   --color-text-muted: #737373;
   --color-text-fade: rgba(237, 237, 237, 0.7);
   --color-text-hover: #c9c9c9;
 
-  /* Hairline borders */
+  /* 发丝边框 */
   --color-border: #262626;
   --color-border-strong: #3f3f46;
 
-  /* Translucent overlays (hover fills, chips, code blocks) */
+  /* 半透明叠加层（hover、标签、代码块） */
   --color-overlay-weak: rgba(255, 255, 255, 0.03);
   --color-overlay: rgba(255, 255, 255, 0.06);
   --color-overlay-strong: rgba(255, 255, 255, 0.1);
 
-  /* Floating header / pills */
+  /* 悬浮头部 / 胶囊 */
   --color-header: rgba(10, 10, 10, 0.75);
   --color-header-solid: rgba(10, 10, 10, 0.95);
   --color-pill: rgba(10, 10, 10, 0.7);
 
-  /* Status accents */
+  /* 状态色 */
   --color-success: #34d399;
   --color-success-soft: rgba(16, 185, 129, 0.12);
 
-  /* Decorative FX (hero grid/beams, ambient glows, card highlight) */
+  /* 装饰动效（hero 网格/光束、背景柔光、卡片高光） */
   --color-fx-grid: rgba(255, 255, 255, 0.045);
   --color-fx-grid-faint: rgba(255, 255, 255, 0.03);
   --color-fx-glow: rgba(255, 255, 255, 0.07);
@@ -118,13 +116,13 @@
   --color-spotlight: rgba(255, 255, 255, 0.06);
   --color-card-glow: rgba(255, 255, 255, 0.06);
 
-  /* Selection & scrollbar */
+  /* 选区与滚动条 */
   --color-selection-bg: rgba(255, 255, 255, 0.9);
   --color-selection-text: #0a0a0a;
   --color-scrollbar: rgba(255, 255, 255, 0.12);
   --color-scrollbar-hover: rgba(255, 255, 255, 0.22);
 
-  /* Focus ring */
+  /* focus 光环 */
   --color-focus-ring: rgba(255, 255, 255, 0.4);
 }
 
@@ -159,7 +157,7 @@ body {
   color: var(--color-selection-text);
 }
 
-/* Hairline scrollbar, GitHub/Linear style */
+/* 发丝级滚动条，GitHub / Linear 风格 */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -179,7 +177,7 @@ body {
   background: var(--color-scrollbar-hover);
 }
 
-/* Respect users who prefer reduced motion */
+/* 尊重 prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -194,17 +192,12 @@ body {
   }
 }
 
-/* Theme-switch cross-fade.
+/* 主题切换的交叉过渡。
  *
- * The `theme-switching` class is added by the theme store only while a real
- * runtime theme change is applied — never on first paint — so the initial
- * load never flashes and never animates.
- *
- * Scope is deliberately narrow: only colour-ish longhands (background-color /
- * border-color / color) on common UI elements. Decorative FX layers (blurred
- * glows, hero grid/beams, card highlight) are NOT transition targets —
- * gradients/filters/masks are not animatable, so transitioning them would
- * only add useless work; they simply snap to their new token values.
+ * `theme-switching` class 由 theme store 只在真实切换时挂上（首次渲染不挂），
+ * 保证初始加载没有动画与闪烁。
+ * 作用范围刻意收窄：只过渡颜色类 longhand；装饰层（blur 柔光、hero 网格/
+ * 光束、卡片高光）的 gradient / filter 不可过渡，直接跟随 token 瞬变。
  */
 html.theme-switching body,
 html.theme-switching header,
@@ -230,7 +223,7 @@ html.theme-switching .hero-visual__fade {
     color 0.16s ease;
 }
 
-/* Page transition (vue-router view) */
+/* 路由切换过渡 */
 .page-enter-active,
 .page-leave-active {
   transition:

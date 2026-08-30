@@ -1,8 +1,7 @@
 import type { StatItem } from '@/types/content'
 
 /**
- * Static numbers for now — the shape is API-ready: swap `value` with
- * data fetched in a composable (e.g. GitHub REST) without touching components.
+ * 目前是静态数据；结构已按 API 预留，后续接 GitHub REST 等数据源时组件不用改。
  */
 export const stats: StatItem[] = [
   {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Props {
   variant?: 'primary' | 'secondary'
-  /** Renders an <a> when set; in-page anchors (`#id`) scroll smoothly */
+  /** 传入 href 时渲染 <a>；页内锚点（#id）自动平滑滚动 */
   href?: string
 }
 

@@ -1,40 +1,35 @@
 /**
- * Theme management — single source of truth for light / dark / system.
- *
- * - `mode` is persisted to localStorage under the `theme` key.
- * - When mode is `system` (also the default before the user ever chooses),
- *   the app follows the OS preference live via `usePreferredDark`.
- * - `data-theme` on `<html>` is what every design token keys off.
- * - The tiny FOUC-guard inline script in `index.html` resolves the initial
- *   value before first paint, so the page never flashes the wrong theme.
+ * 主题唯一状态源。
+ * - mode 持久化到 localStorage（key: `theme`），`system` 模式实时跟随系统
+ * - data-theme 挂在 <html> 上，所有 design token 以它为准
+ * - 首次 paint 前由 index.html 内联脚本初始化，避免 FOUC
  */
 import { usePreferredDark, useStorage } from '@vueuse/core'
 
 export type ThemeMode = 'light' | 'dark' | 'system'
 
-/** Resolved theme actually painted to the page. */
+/** 实际渲染到页面上的主题 */
 export type ResolvedTheme = Exclude<ThemeMode, 'system'>
 
-/** Cycle order for the header button: light → dark → system → light. */
+/** 按钮循环顺序：light → dark → system → light */
 const CYCLE_ORDER: readonly ThemeMode[] = ['light', 'dark', 'system']
 
 export const useThemeStore = defineStore('theme', () => {
-  /** User-selected mode, persisted. Defaults to following the system. */
+  /** 用户选择，持久化；默认跟随系统 */
   const mode = useStorage<ThemeMode>('theme', 'system')
 
-  /** Live OS preference (reacts to `prefers-color-scheme` changes). */
+  /** 系统主题，监听 prefers-color-scheme 实时变化 */
   const systemDark = usePreferredDark()
 
-  /** The theme actually applied to the document. */
+  /** 实际生效的主题 */
   const effective = computed<ResolvedTheme>(() =>
     mode.value === 'system' ? (systemDark.value ? 'dark' : 'light') : mode.value,
   )
 
   /**
-   * The mode a click on the header button will switch to.
-   * Leaving `system` always flips the currently-shown theme, so the first
-   * click produces an immediate visible change; otherwise the fixed
-   * light → dark → system cycle is followed.
+   * 点击按钮后要切换到的模式。
+   * 从 `system` 退出时切到当前生效主题的反面，保证点击即有视觉变化；
+   * 其余情况按固定循环 light → dark → system 走。
    */
   const nextMode = computed<ThemeMode>(() => {
     if (mode.value === 'system') return systemDark.value ? 'light' : 'dark'
@@ -45,8 +40,7 @@ export const useThemeStore = defineStore('theme', () => {
     const root = document.documentElement
     const current = root.dataset.theme
 
-    // Animate the swap only for real runtime changes — never on first paint,
-    // so the initial load stays free of flash and transitions.
+    // 只在真实切换时挂 transition class，首次渲染不挂，避免初始加载出现动画
     if (current && current !== resolved) {
       root.classList.add('theme-switching')
       window.setTimeout(() => root.classList.remove('theme-switching'), 220)
@@ -54,7 +48,7 @@ export const useThemeStore = defineStore('theme', () => {
 
     root.dataset.theme = resolved
 
-    // Keep browser chrome (mobile address bar / PWA status bar) in sync.
+    // 同步浏览器外壳（移动端地址栏 / PWA 状态栏）的 theme-color
     document
       .querySelector<HTMLMetaElement>('meta[name="theme-color"]')
       ?.setAttribute('content', resolved === 'dark' ? '#0a0a0a' : '#ffffff')

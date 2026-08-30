@@ -1,22 +1,20 @@
 import type { CSSProperties } from 'vue'
 
 interface SpotlightOptions {
-  /** Disable tracking entirely (e.g. prefers-reduced-motion) */
+  /** 完全禁用 tracking（如 prefers-reduced-motion 开启时） */
   disabled?: Ref<boolean>
-  /** Smoothing factor per frame, 0–1 (higher = snappier) */
+  /** 每帧平滑系数 0–1，越大越跟手 */
   ease?: number
 }
 
 /**
- * Global mouse-follow spotlight. Tracks the pointer across the viewport and
- * exposes CSS custom properties (`--spot-x` / `--spot-y` / `--spot-o`) that a
- * fixed radial-gradient layer consumes. Movement is smoothed with a small
- * rAF lerp so the light glides rather than snaps.
+ * 全局鼠标聚光：rAF lerp 平滑跟随指针，通过 CSS variables（--spot-x/y/o）
+ * 暴露位置给 fixed radial-gradient 层。
  */
 export function useMouseSpotlight(options: SpotlightOptions = {}) {
   const { disabled, ease = 0.12 } = options
 
-  // Rendered position (smoothed) and target position (raw pointer).
+  // 平滑后的渲染位置 + 原始指针位置，分开存避免 lerp 抖动
   const x = ref(0)
   const y = ref(0)
   const targetX = ref(0)
@@ -47,7 +45,7 @@ export function useMouseSpotlight(options: SpotlightOptions = {}) {
     if (disabled?.value) return
     targetX.value = event.clientX
     targetY.value = event.clientY
-    // Jump straight to the pointer on first move to avoid a corner-to-cursor swipe.
+    // 首次移动直接跳到指针位置，避免从角落滑过去
     if (opacity.value === 0) {
       x.value = event.clientX
       y.value = event.clientY
@@ -55,7 +53,7 @@ export function useMouseSpotlight(options: SpotlightOptions = {}) {
     opacity.value = 1
   })
 
-  // Fade out when the pointer leaves the document.
+  // 指针离开文档时淡出
   useEventListener(document, 'pointerleave', () => {
     opacity.value = 0
   })
@@ -65,7 +63,7 @@ export function useMouseSpotlight(options: SpotlightOptions = {}) {
   })
   onBeforeUnmount(stop)
 
-  // React to reduced-motion toggles at runtime.
+  // reduced-motion 动态开关
   if (disabled) {
     watch(disabled, (isDisabled) => {
       if (isDisabled) {

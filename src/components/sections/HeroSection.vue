@@ -3,7 +3,7 @@ import { motion } from 'motion-v'
 import { getRandomHero } from '@/config'
 import { EASE_OUT_EXPO } from '@/constants/animation'
 
-// Pick a random hero variant on each page load — content differs on every refresh.
+// 每次加载随机选一条 hero 文案
 const hero = getRandomHero()
 
 const enter = (delay: number) => ({
@@ -52,11 +52,8 @@ const enter = (delay: number) => ({
 </template>
 
 <style scoped>
-/* Soft vertical fade on the first headline line.
- * The colour itself is `--color-text` (transitions with the theme); this
- * static mask only fades its alpha 1 → 0.7, replicating the previous
- * `from-ink to-ink-fade` gradient without an un-animatable background.
- */
+/* 首行标题的纵向渐隐：颜色是 --color-text（随主题过渡），
+   这个静态 mask 只把 alpha 从 1 淡到 0.7，替代原 gradient */
 .hero-headline-fade {
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.7) 100%);
   mask-image: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.7) 100%);

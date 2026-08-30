@@ -1,7 +1,6 @@
 /**
- * Content model for the whole site.
- * All copy, projects, timeline entries etc. are described by these types
- * and provided from `src/config/` — components never hardcode content.
+ * 站点内容模型。所有文案、项目、时间线等数据都定义在 src/config/ 下，
+ * 组件不直接写死内容。icon 字段统一用 Iconify 图标名（`prefix:name`）。
  */
 
 export interface CtaLink {
@@ -11,12 +10,12 @@ export interface CtaLink {
 
 export interface NavItem {
   label: string
-  /** In-page anchor (e.g. `#projects`) or route path */
+  /** 页内锚点（如 `#projects`）或路由路径 */
   href: string
 }
 
 export interface HeroConfig {
-  /** Rendered as stacked display lines */
+  /** 按行堆叠展示的标题 */
   headline: string[]
   intro: string
   primaryCta: CtaLink
@@ -24,7 +23,6 @@ export interface HeroConfig {
 }
 
 export interface FocusArea {
-  /** Iconify icon name, e.g. `ph:code-duotone` */
   icon: string
   title: string
   description: string
@@ -39,10 +37,9 @@ export type TechLevel = 'expert' | 'proficient' | 'familiar'
 
 export interface TechItem {
   name: string
-  /** Iconify icon name */
   icon: string
   level: TechLevel
-  /** Years of use — optional, shown when provided */
+  /** 使用年限，提供时才展示 */
   years?: number
 }
 
@@ -55,22 +52,22 @@ export interface Project {
   slug: string
   title: string
   description: string
-  /** Tech stack labels shown on the card */
+  /** 卡片上展示的技术标签 */
   tech: string[]
-  /** Freeform tags, e.g. `AI` / `Open Source` */
+  /** 自由标签，如 AI / Open Source */
   tags: string[]
   github?: string
   demo?: string
-  /** Screenshot path under /public — placeholder rendered when absent */
+  /** /public 下的截图路径，缺省时渲染占位图 */
   image?: string
-  /** Pinned projects sort first */
+  /** 置顶项目排在最前 */
   pinned?: boolean
 }
 
 export type TimelineKind = 'education' | 'experience' | 'project' | 'milestone'
 
 export interface TimelineItem {
-  /** Display date, e.g. `2024` or `2024 — Now` */
+  /** 展示日期，如 `2024` 或 `2024 — Now` */
   date: string
   title: string
   description: string
@@ -78,9 +75,7 @@ export interface TimelineItem {
 }
 
 export interface NowItem {
-  /** Iconify icon name */
   icon: string
-  /** Verb, e.g. `Building` */
   label: string
   detail: string
 }
@@ -88,80 +83,61 @@ export interface NowItem {
 export interface StatItem {
   label: string
   value: number
-  /** Appended after the animated number, e.g. `+` */
+  /** 数字后的后缀，如 `+` */
   suffix?: string
-  /** Iconify icon name */
   icon: string
 }
 
 export interface FriendLink {
-  /** Site / person name shown as the link label */
   name: string
   href: string
-  /** Optional one-line note shown below the name */
+  /** 名称下方的单行备注 */
   description?: string
-  /** Iconify icon name — used when no avatar is provided */
+  /** 未提供 avatar 时显示的兜底图标 */
   icon?: string
-  /** Avatar URL — shown as a circular image when provided */
+  /** 头像 URL，提供时以圆形图片展示 */
   avatar?: string
 }
 
 export interface SocialLink {
   name: string
-  /** Iconify icon name */
   icon: string
   href: string
-  /** Shown next to the name, e.g. `@handle` */
+  /** 名称旁展示的 handle，如 `@Lydia` */
   handle?: string
 }
 
 // 游戏服务器
 export type ServerStatus = 'online' | 'offline'
 export interface GameServer {
-  /** Unique identifier */
   slug: string
-  /** Game name, e.g. `Minecraft` */
   game: string
-  /** Iconify icon name for the game */
   icon: string
-  /** Current server status */
   status: ServerStatus
-  /** Current / max player count — omit when unknown */
+  /** 当前 / 最大在线人数，未知时省略 */
   players?: { current: number; max: number }
-  /** Server version string, e.g. `1.21.4` */
   version?: string
-  /** Direct-connect address, e.g. `mc.example.com:25565` */
   address: string
 }
 
 // 个人站点
 export interface PersonalSite {
-  /** Unique identifier */
   slug: string
-  /** Site name */
   name: string
-  /** Short description of the site */
   description: string
-  /** Full URL including protocol */
   url: string
-  /** Display domain, e.g. `blog.example.com` */
+  /** 展示用域名，如 `blog.example.com` */
   domain: string
-  /** Iconify icon name */
   icon: string
-  /** Current site status */
   status: ServerStatus
 }
 
-
 export interface SiteConfig {
-  /** Brand name shown in the nav wordmark */
   name: string
-  /** <title> shown in the browser tab */
   title: string
   description: string
-  /** Canonical origin, no trailing slash */
+  /** 站点根地址，不带结尾斜杠 */
   url: string
-  /** Footer slogan */
   slogan: string
   nav: NavItem[]
 }

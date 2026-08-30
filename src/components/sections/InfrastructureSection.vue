@@ -11,10 +11,10 @@ import { gameServers, personalSites } from '@/config'
     />
 
     <div class="space-y-12">
-      <!-- Game Servers -->
+      <!-- 游戏服务器 -->
       <ServersSection />
 
-      <!-- Personal Sites -->
+      <!-- 个人站点 -->
       <SitesSection />
     </div>
   </SectionContainer>

@@ -1,4 +1,4 @@
-/** Cross-cutting UI state (mobile menu, future theme/blog prefs). */
+/** 跨组件 UI 状态（移动端菜单等） */
 export const useUiStore = defineStore('ui', () => {
   const menuOpen = ref(false)
 

@@ -4,7 +4,7 @@ import { STAGGER_STEP } from '@/constants/animation'
 
 const { copy } = useClipboard()
 
-/** Track which server address was just copied (by slug) */
+/** 记录最近复制过的服务器地址（按 slug），用于按钮反馈 */
 const copiedSlug = ref<string | null>(null)
 
 async function copyAddress(slug: string, address: string) {
@@ -33,7 +33,7 @@ async function copyAddress(slug: string, address: string) {
       >
         <BaseCard class="h-full p-5">
           <div class="flex items-start gap-4">
-            <!-- 游戏Icon -->
+            <!-- 游戏图标 -->
             <span
               class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line bg-overlay-weak"
             >
@@ -41,7 +41,7 @@ async function copyAddress(slug: string, address: string) {
             </span>
 
             <div class="min-w-0 flex-1">
-              <!-- Row 1: 游戏名称 + server status -->
+              <!-- 名称 + 状态 -->
               <div class="flex items-center gap-2">
                 <h4 class="truncate text-sm font-medium text-ink">{{ server.game }}</h4>
                 <span
@@ -60,7 +60,7 @@ async function copyAddress(slug: string, address: string) {
                 </span>
               </div>
 
-              <!-- Row 2: meta (在线玩家数/最大支持玩家数 · 游戏版本) -->
+              <!-- meta：在线人数 / 版本 -->
               <p class="mt-1 text-xs text-ink-muted">
                 <template v-if="server.players">
                   {{ server.players.current }}/{{ server.players.max }} 玩家
@@ -69,7 +69,7 @@ async function copyAddress(slug: string, address: string) {
                 <template v-if="server.version">v{{ server.version }}</template>
               </p>
 
-              <!-- Row 3: 服务器地址 + 复制Button -->
+              <!-- 地址 + 复制按钮 -->
               <div class="mt-3 flex items-center gap-2">
                 <code
                   class="min-w-0 flex-1 truncate rounded-lg border border-line bg-overlay-weak px-3 py-1.5 font-mono text-xs text-ink-secondary"

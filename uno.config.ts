@@ -6,28 +6,27 @@ import {
 } from 'unocss'
 
 /**
- * Design tokens — Linear/Vercel-inspired monochrome system.
- * Every color is a CSS custom property defined in `src/styles/main.css`
- * per theme (`[data-theme="light" | "dark"]` on <html>); UnoCSS utilities
- * simply reference those variables. Components never hardcode color values.
+ * Design tokens —— Linear / Vercel 风格的单色系统。
+ * 所有颜色都是 src/styles/main.css 里按主题（[data-theme]）定义的 CSS 变量，
+ * UnoCSS 工具类只引用这些变量，组件不写死色值。
  */
 export default defineConfig({
   presets: [presetWind3()],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   theme: {
     colors: {
-      // Backgrounds
+      // 背景
       bg: {
         DEFAULT: 'var(--color-bg)',
         soft: 'var(--color-bg-secondary)',
         raised: 'var(--color-surface)',
       },
-      // Surfaces (cards, raised panels)
+      // 表面（卡片等）
       surface: {
         DEFAULT: 'var(--color-surface)',
         hover: 'var(--color-surface-hover)',
       },
-      // Foregrounds
+      // 前景
       ink: {
         DEFAULT: 'var(--color-text)',
         secondary: 'var(--color-text-secondary)',
@@ -35,29 +34,29 @@ export default defineConfig({
         hover: 'var(--color-text-hover)',
         fade: 'var(--color-text-fade)',
       },
-      // Hairline borders
+      // 发丝边框
       line: {
         DEFAULT: 'var(--color-border)',
         strong: 'var(--color-border-strong)',
       },
-      // Translucent overlays (hover fills, chips, code blocks)
+      // 半透明叠加（hover 填充、标签、代码块）
       overlay: {
         weak: 'var(--color-overlay-weak)',
         DEFAULT: 'var(--color-overlay)',
         strong: 'var(--color-overlay-strong)',
       },
-      // Floating header / pills
+      // 悬浮头部 / 胶囊
       header: {
         DEFAULT: 'var(--color-header)',
         solid: 'var(--color-header-solid)',
       },
       pill: 'var(--color-pill)',
-      // Status accents
+      // 状态色
       success: {
         DEFAULT: 'var(--color-success)',
         soft: 'var(--color-success-soft)',
       },
-      // Focus ring
+      // focus 光环
       focus: 'var(--color-focus-ring)',
     },
     fontFamily: {
@@ -69,23 +68,23 @@ export default defineConfig({
     },
   },
   shortcuts: {
-    // Layout
+    // 布局
     'container-page': 'mx-auto w-full max-w-page px-6 md:px-8',
     'section-pad': 'py-20 md:py-28 lg:py-32',
 
-    // Typography
+    // 排版
     'text-eyebrow':
       'text-xs font-medium uppercase tracking-[0.18em] text-ink-muted',
     'text-section-title':
       'text-3xl md:text-4xl font-semibold tracking-tight text-ink',
     'text-body': 'text-[15px] leading-relaxed text-ink-secondary',
 
-    // Surfaces
+    // 表面
     'card-surface':
       'rounded-2xl border border-line bg-surface transition-colors duration-300',
     'card-hover': 'hover:border-line-strong hover:bg-surface-hover',
 
-    // Interactive
+    // 交互
     'btn-base':
       'inline-flex items-center justify-center gap-2 rounded-xl text-sm font-medium transition-all duration-200 focus-visible:(outline-none ring-2 ring-focus ring-offset-2 ring-offset-bg)',
     'btn-primary':

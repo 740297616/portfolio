@@ -20,7 +20,7 @@ const kindMeta: Record<TimelineKind, { icon: string; label: string }> = {
     />
 
     <div class="relative max-w-2xl">
-      <!-- Vertical line -->
+      <!-- 竖向时间线 -->
       <div
         class="absolute bottom-2 left-[11px] top-2 w-px bg-gradient-to-b via-line to-transparent"
         aria-hidden="true"
@@ -30,7 +30,7 @@ const kindMeta: Record<TimelineKind, { icon: string; label: string }> = {
         <li v-for="(item, i) in timeline" :key="item.title">
           <RevealMotion :delay="i * STAGGER_STEP" :y="16">
             <div class="relative pl-12">
-              <!-- Node -->
+              <!-- 节点 -->
               <span
                 class="absolute left-0 top-0.5 grid h-6 w-6 place-items-center rounded-full border border-line-strong bg-bg"
               >

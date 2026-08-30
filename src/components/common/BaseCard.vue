@@ -5,7 +5,7 @@ const { glowStyle } = useCardGlow(root)
 
 <template>
   <div ref="root" class="card-surface card-hover group relative overflow-hidden" :style="glowStyle">
-    <!-- Mouse-follow highlight -->
+    <!-- 鼠标高光 -->
     <div
       class="pointer-events-none absolute inset-0 transition-opacity duration-300"
       style="
