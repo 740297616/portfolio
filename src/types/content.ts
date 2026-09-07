@@ -120,7 +120,13 @@ export interface GameServer {
   address: string
 }
 
-// 个人站点
+// 站点状态：online 正常 / offline 离线 / unknown 检测失败 / checking 检测中
+export type SiteStatus = 'online' | 'offline' | 'unknown' | 'checking'
+
+/**
+ * 个人站点。没有 status 字段——在线状态由 useSiteStatus 运行时按 slug 检测，
+ * 探活目标维护在 src/config/monitors.ts。
+ */
 export interface PersonalSite {
   slug: string
   name: string
@@ -129,7 +135,6 @@ export interface PersonalSite {
   /** 展示用域名，如 `blog.example.com` */
   domain: string
   icon: string
-  status: ServerStatus
 }
 
 export interface SiteConfig {
