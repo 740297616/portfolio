@@ -1,33 +1,27 @@
 <script setup lang="ts">
-import type { PersonalSite, SiteStatus } from '@/types/content'
 import { personalSites } from '@/config'
 import { STAGGER_STEP } from '@/constants/animation'
-
-/** 运行时自动探测的站点状态：首屏 checking，拉到结果后自动更新 */
-const { statusOf } = useSiteStatus()
-
-const STATUS_LABEL: Record<SiteStatus, string> = {
-  online: 'Online',
-  offline: 'Offline',
-  unknown: 'Unknown',
-  checking: 'Checking',
-}
-
-/** 把探测状态挂到站点上，模板照旧读 site.status */
-const sites = computed<(PersonalSite & { status: SiteStatus })[]>(() =>
-  personalSites.map((site) => ({ ...site, status: statusOf(site.slug) })),
-)
 </script>
 
 <template>
-  <div v-if="sites.length">
+  <div v-if="personalSites.length">
     <RevealMotion>
       <h3 class="mb-6 text-sm font-medium uppercase tracking-wider text-ink-muted">Sites</h3>
     </RevealMotion>
 
     <div class="grid gap-4 sm:grid-cols-2">
-      <RevealMotion v-for="(site, i) in sites" :key="site.slug" :delay="i * STAGGER_STEP" :y="16">
-        <a :href="site.url" target="_blank" rel="noopener noreferrer" class="block h-full">
+      <RevealMotion
+        v-for="(site, i) in personalSites"
+        :key="site.slug"
+        :delay="i * STAGGER_STEP"
+        :y="16"
+      >
+        <a
+          :href="site.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block h-full"
+        >
           <BaseCard class="h-full p-5 transition-colors duration-200">
             <div class="flex items-start gap-4">
               <span
@@ -41,7 +35,7 @@ const sites = computed<(PersonalSite & { status: SiteStatus })[]>(() =>
                 <div class="flex items-center gap-2">
                   <h4 class="truncate text-sm font-medium text-ink">{{ site.name }}</h4>
                   <span
-                    class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium transition-colors duration-200"
+                    class="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium"
                     :class="
                       site.status === 'online'
                         ? 'bg-success-soft text-success'
@@ -49,14 +43,10 @@ const sites = computed<(PersonalSite & { status: SiteStatus })[]>(() =>
                     "
                   >
                     <span
-                      class="h-1.5 w-1.5 rounded-full transition-colors duration-200"
-                      :class="{
-                        'bg-success': site.status === 'online',
-                        'bg-ink-muted': site.status === 'offline' || site.status === 'unknown',
-                        'bg-ink-secondary animate-pulse': site.status === 'checking',
-                      }"
+                      class="h-1.5 w-1.5 rounded-full"
+                      :class="site.status === 'online' ? 'bg-success' : 'bg-ink-muted'"
                     />
-                    {{ STATUS_LABEL[site.status] }}
+                    {{ site.status === 'online' ? 'Online' : 'Offline' }}
                   </span>
                 </div>
 

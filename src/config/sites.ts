@@ -1,10 +1,6 @@
 import type { PersonalSite } from '@/types/content'
 
-/**
- * 个人站点，新增加在数组里即可。
- * 在线状态不在这里维护——探活目标写在 src/config/monitors.ts，
- * 运行时由 useSiteStatus 按 slug 自动检测。
- */
+/** 个人站点，新增加在数组里即可 */
 export const personalSites: PersonalSite[] = [
   {
     slug: 'blog',
@@ -13,6 +9,7 @@ export const personalSites: PersonalSite[] = [
     url: 'https://blog.lydia0.cn',
     domain: 'blog.lydia0.cn',
     icon: 'simple-icons:ghost',
+    status: 'online',
   },
   {
     slug: 'home',
@@ -21,6 +18,7 @@ export const personalSites: PersonalSite[] = [
     url: 'https://lydia0.cn',
     domain: 'lydia0.cn',
     icon: 'ph:house',
+    status: 'online',
   },
   {
     slug: 'nezha',
@@ -29,6 +27,7 @@ export const personalSites: PersonalSite[] = [
     url: 'https://nz.lydia0.cn',
     domain: 'nz.lydia0.cn',
     icon: 'simple-icons:grafana',
+    status: 'online',
   },
   {
     slug: 'ghproxy',
@@ -37,6 +36,7 @@ export const personalSites: PersonalSite[] = [
     url: 'https://ghproxy.lydia0.cn',
     domain: 'ghproxy.lydia0.cn',
     icon: 'simple-icons:github',
+    status: 'online',
   },
   {
     slug: 'api',
@@ -45,5 +45,6 @@ export const personalSites: PersonalSite[] = [
     url: 'https://api.lydia0.cn',
     domain: 'api.lydia0.cn',
     icon: 'ph:plugs-connected',
+    status: 'offline',
   },
 ]

@@ -6,17 +6,13 @@
     "vitest.config.*",
     "cypress.config.*",
     "playwright.config.*",
-    "eslint.config.*",
-    "api/**/*.ts"
+    "eslint.config.*"
   ],
   "compilerOptions": {
     // Most tools use transpilation instead of Node.js's native type-stripping.
     // Bundler mode provides a smoother developer experience.
     "module": "preserve",
     "moduleResolution": "bundler",
-
-    // api/ 的 serverless 函数带 `.ts` 后缀导入，既兼容打包器也兼容 Node 原生类型剥离。
-    "allowImportingTsExtensions": true,
 
     // Include Node.js types and avoid accidentally including other `@types/*` packages.
     "types": ["node"],
