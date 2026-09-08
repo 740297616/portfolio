@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { site, socialLinks } from '@/config'
+import { site } from '@/config'
 import { useThemeStore } from '@/stores/theme'
 import type { ThemeMode } from '@/stores/theme'
 
@@ -8,10 +8,8 @@ const theme = useThemeStore()
 const { y } = useWindowScroll()
 const scrolled = computed(() => y.value > 8)
 
-const github = socialLinks.find((link) => link.name === 'GitHub')
-
-const themeIcon = computed(
-  () => (theme.mode === 'light' ? 'ph:sun' : theme.mode === 'dark' ? 'ph:moon' : 'ph:monitor'),
+const themeIcon = computed(() =>
+  theme.mode === 'light' ? 'ph:sun' : theme.mode === 'dark' ? 'ph:moon' : 'ph:monitor',
 )
 
 const themeModeLabel: Record<ThemeMode, string> = {
@@ -61,14 +59,13 @@ function onNavClick() {
 
       <div class="flex items-center gap-2">
         <a
-          v-if="github"
-          :href="github.href"
+          href="https://github.com/740297616/portfolio"
           target="_blank"
           rel="noopener noreferrer"
           class="link-subtle hidden rounded-lg p-2 hover:bg-overlay md:inline-flex"
-          :aria-label="github.name"
+          aria-label="Repo"
         >
-          <Icon :icon="github.icon" class="h-4.5 w-4.5" />
+          <Icon icon="simple-icons:github" class="h-4.5 w-4.5" />
         </a>
 
         <!-- 主题按钮：light → dark → system 循环 -->
