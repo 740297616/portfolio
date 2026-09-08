@@ -33,14 +33,9 @@ export interface AboutConfig {
   focuses: FocusArea[]
 }
 
-export type TechLevel = 'expert' | 'proficient' | 'familiar'
-
 export interface TechItem {
   name: string
   icon: string
-  level: TechLevel
-  /** 使用年限，提供时才展示 */
-  years?: number
 }
 
 export interface TechCategory {
