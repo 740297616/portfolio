@@ -16,12 +16,7 @@ import { STAGGER_STEP } from '@/constants/animation'
         :delay="i * STAGGER_STEP"
         :y="16"
       >
-        <a
-          :href="site.url"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="block h-full"
-        >
+        <a :href="site.url" target="_blank" rel="noopener noreferrer" class="block h-full">
           <BaseCard class="h-full p-5 transition-colors duration-200">
             <div class="flex items-start gap-4">
               <span
@@ -46,7 +41,13 @@ import { STAGGER_STEP } from '@/constants/animation'
                       class="h-1.5 w-1.5 rounded-full"
                       :class="site.status === 'online' ? 'bg-success' : 'bg-ink-muted'"
                     />
-                    {{ site.status === 'online' ? 'Online' : 'Offline' }}
+                    {{
+                      site.status === 'online'
+                        ? 'Online'
+                        : site.status === 'developing'
+                          ? 'Developing'
+                          : 'Offline'
+                    }}
                   </span>
                 </div>
 

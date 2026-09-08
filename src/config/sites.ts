@@ -45,6 +45,6 @@ export const personalSites: PersonalSite[] = [
     url: 'https://api.lydia0.cn',
     domain: 'api.lydia0.cn',
     icon: 'ph:plugs-connected',
-    status: 'offline',
+    status: 'developing',
   },
 ]

@@ -1,19 +1,6 @@
 <script setup lang="ts">
 import { techCategories } from '@/config'
 import { STAGGER_STEP } from '@/constants/animation'
-import type { TechLevel } from '@/types/content'
-
-const levelLabels: Record<TechLevel, string> = {
-  expert: '精通',
-  proficient: '熟练',
-  familiar: '了解',
-}
-
-const levelDots: Record<TechLevel, number> = {
-  expert: 3,
-  proficient: 2,
-  familiar: 1,
-}
 </script>
 
 <template>
@@ -48,18 +35,6 @@ const levelDots: Record<TechLevel, number> = {
                 <p class="truncate text-sm font-medium text-ink">
                   {{ item.name }}
                 </p>
-                <p class="text-xs text-ink-muted">
-                  {{ levelLabels[item.level]
-                  }}<template v-if="item.years"> · {{ item.years }} 年</template>
-                </p>
-              </div>
-              <div class="flex gap-1" :title="levelLabels[item.level]">
-                <span
-                  v-for="dot in 3"
-                  :key="dot"
-                  class="h-1 w-1 rounded-full"
-                  :class="dot <= levelDots[item.level] ? 'bg-ink' : 'bg-line'"
-                />
               </div>
             </div>
           </RevealMotion>

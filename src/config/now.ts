@@ -5,22 +5,21 @@ export const nowItems: NowItem[] = [
   {
     icon: 'ph:briefcase-duotone',
     label: '最近在做',
-    detail: '与同学' +
-      '与好友共同开发现代化 OA 系统，完善前后端架构。',
+    detail: '专注于正在进行的项目，把想法逐步变成真正可用的产品。',
   },
   {
     icon: 'ph:sparkle-duotone',
     label: '兴趣方向',
-    detail: 'AI Agent、开发者工具与智能自动化工作流。',
+    detail: '关注新技术、新工具，以及技术与生活之间有趣的可能性。',
   },
   {
     icon: 'ph:terminal-window-duotone',
-    label: '技术栈',
-    detail: 'Vue 3、TypeScript、FastAPI、Python、Docker。',
+    label: '平时喜欢',
+    detail: '写代码、做项目、研究有趣的东西，也喜欢不断尝试新的事物。',
   },
   {
     icon: 'ph:heart-duotone',
     label: '持续探索',
-    detail: '把有趣的想法变成产品，并不断打磨用户体验。',
+    detail: '保持好奇，不断学习，把遇到的问题变成成长的机会。',
   },
 ]

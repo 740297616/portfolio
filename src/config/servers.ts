@@ -8,7 +8,7 @@ export const gameServers: GameServer[] = [
     slug: 'mc-survival',
     game: 'Minecraft',
     icon: 'simple-icons:minecraft',
-    status: 'online',
+    status: 'offline',
     // players: { current: 3, max: 20 }, // TODO: 是否可实现实时查询人数？
     version: 'vanilla-snapshot-26.3-snapshot-9',
     address: 'frp-bid.com:58015',
@@ -26,7 +26,7 @@ export const gameServers: GameServer[] = [
     game: 'Satisfactory',
     icon: 'simple-icons:satisfactory',
     status: 'online',
-    version: '1.1',
+    version: '1.2',
     address: 'frp-bid.com:33638',
   },
   // {
